@@ -31,5 +31,5 @@ function ajouterMarqueurs(data) {
 
 // Charger le CSV (remplacez 'data.csv' par l'URL de votre fichier)
 chargerCSV('./data/data.csv');
-var marker = L.marker([43.606346535595776, 1.429172974796818]).addTo(map);
+var marker = L.marker([43.606346535595776, 1.428172974796818]).addTo(map);
 marker.bindPopup("<b>Hello Prexii!</b>");

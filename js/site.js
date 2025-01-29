@@ -4,6 +4,24 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
+
+// 🔐 Stocker le hash du mot de passe (mot de passe : "monSuperMotDePasse123")
+const HASH_STOCKE = "6cc4f9e81df815c52e73b1562df40607"; // MD5("Amusez-vous")
+
+// Vérifier le mot de passe
+function verifierMotDePasse() {
+    let mdpUtilisateur = document.getElementById("password").value;
+    let hashUtilisateur = CryptoJS.MD5(mdpUtilisateur).toString(); // Hasher l'entrée utilisateur en MD5
+
+    if (hashUtilisateur === HASH_STOCKE) {
+        document.getElementById("auth-container").style.display = "none";
+        document.getElementById("map-container").style.display = "block";
+        initMap(); // Chargement de la carte
+    } else {
+        document.getElementById("error-message").textContent = "Mot de passe incorrect.";
+    }
+}
 // Fonction pour décoder le fichier CSV encodé en Base85
 function decodeBase85(encodedText) {
     try {

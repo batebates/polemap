@@ -1,1 +1,4 @@
+body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+#auth-container { display: block; }
+#map-container { display: none; }
 #map { height: 600px; width: 100%; }

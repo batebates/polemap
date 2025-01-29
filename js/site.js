@@ -117,7 +117,7 @@ function ajouterMarqueurs(data) {
         }
         if (lieu.latitude && lieu.longitude) {
             var marker = L.marker([parseFloat(lieu.latitude), parseFloat(lieu.longitude)], {icon: Icon}).addTo(map);
-            marker.bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse}`);
+            marker.bindPopup(`<b>${lieu.nom} ${lieu.date}</b><br>${lieu.adresse}`);
         }
     });
 }

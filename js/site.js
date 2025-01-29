@@ -70,18 +70,16 @@ function chargerCSV(url) {
 
 // Fonction pour ajouter les marqueurs sur la carte
 function ajouterMarqueurs(data) {
-    var BlackIcon = L.icon({
-    iconUrl: 'data/poleico.jpeg',
-    shadowUrl: 'leaf-shadow.png',
-
-    iconSize:     [38, 95], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    var BlueIcon = L.icon({
+    iconUrl: 'data/poleicoblue.png',
+    iconSize:     [43, 65], // size of the icon
+    iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
     });
     data.forEach(lieu => {
         
         if (lieu.latitude && lieu.longitude) {
-            var marker = L.marker([parseFloat(lieu.latitude), parseFloat(lieu.longitude)], {icon: BlackIcon}).addTo(map);
+            var marker = L.marker([parseFloat(lieu.latitude), parseFloat(lieu.longitude)], {icon: BlueIcon}).addTo(map);
             marker.bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse}`);
         }
     });

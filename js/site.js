@@ -1,3 +1,4 @@
+
 var map = L.map('map').setView([43.606346535595776, 1.429172974796818], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -8,6 +9,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // 🔐 Stocker le hash du mot de passe (mot de passe : "monSuperMotDePasse123")
 const HASH_STOCKE = "6cc4f9e81df815c52e73b1562df40607"; // MD5("Amusez-vous")
+let map;
 
 // Vérifier le mot de passe
 function verifierMotDePasse() {
@@ -17,13 +19,37 @@ function verifierMotDePasse() {
     if (hashUtilisateur === HASH_STOCKE) {
         document.getElementById("auth-container").style.display = "none";
         document.getElementById("map-container").style.display = "block";
-        initMap(); // Chargement de la carte
+        // Attendre un court instant avant d'initialiser la carte
+        setTimeout(initMap, 100); 
     } else {
         document.getElementById("error-message").textContent = "Mot de passe incorrect.";
     }
 }
+// Initialisation de la carte
+function initMap() {
+        // Vérifier si la carte n'existe pas déjà (évite les doublons)
+        if (map) {
+            map.invalidateSize(); // Corrige les problèmes d'affichage
+            return;
+        }
+
+        map = L.map('map').setView([43.606346535595776, 1.429172974796818], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Après affichage, forcer Leaflet à recalculer la taille de la carte
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 300);
+
+        // Charger les données CSV
+        chargerCSV("data.csv");
+    }
 // Fonction pour décoder le fichier CSV encodé en Base85
-function decodeBase85(encodedText) {
+function decodeBase64(encodedText) {
     try {
         let decodedBytes = atob(encodedText); // Décodage Base64 (équivalent pour Base85 selon l'encodage utilisé)
         return new TextDecoder("utf-8").decode(Uint8Array.from(decodedBytes, c => c.charCodeAt(0)));
@@ -37,7 +63,7 @@ function chargerCSV(url) {
     fetch(url)
         .then(response => response.text())  // Récupérer le texte encodé
         .then(encodedText => {
-            let decodedCSV = decodeBase85(encodedText); // Décodage Base85 -> CSV brut
+            let decodedCSV = decodeBase64(encodedText); // Décodage Base85 -> CSV brut
             Papa.parse(decodedCSV, {
                 header: true, // Prend en compte les noms de colonnes
                 skipEmptyLines: true,

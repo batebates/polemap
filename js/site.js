@@ -37,7 +37,9 @@ function initMap() {
         }, 300);
 
         // Charger les données CSV
-        chargerCSV("data.csv");
+        chargerCSV('./data/data');
+        var marker = L.marker([43.606346535595776, 1.428172974796818]).addTo(map);
+        marker.bindPopup("<b>Hello Prexii!</b>");
     }
 // Fonction pour décoder le fichier CSV encodé en Base85
 function decodeBase64(encodedText) {
@@ -76,7 +78,4 @@ function ajouterMarqueurs(data) {
     });
 }
 
-// Charger le CSV (remplacez 'data.csv' par l'URL de votre fichier)
-chargerCSV('./data/data');
-var marker = L.marker([43.606346535595776, 1.428172974796818]).addTo(map);
-marker.bindPopup("<b>Hello Prexii!</b>");
+

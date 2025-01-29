@@ -38,8 +38,14 @@ function initMap() {
 
         // Charger les données CSV
         chargerCSV('./data/data');
-        var marker = L.marker([43.606346535595776, 1.428172974796818]).addTo(map);
-        marker.bindPopup("<b>Hello Prexii!</b>");
+            var ExoIcon = L.icon({
+            iconUrl: 'data/Logo Exotea.png',
+            iconSize:     [43, 65], // size of the icon
+            iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
+            popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
+        });
+        var marker = L.marker([43.606056535595776, 1.428372974796818], {icon: ExoIcon}).addTo(map);
+        marker.bindPopup("<b>Hello Prexii, Bonne journée à toi !</b>");
     }
 // Fonction pour décoder le fichier CSV encodé en Base85
 function decodeBase64(encodedText) {

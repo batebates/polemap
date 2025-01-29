@@ -70,16 +70,47 @@ function chargerCSV(url) {
 
 // Fonction pour ajouter les marqueurs sur la carte
 function ajouterMarqueurs(data) {
+    var GreenIcon = L.icon({
+    iconUrl: 'data/poleicoblack.png',
+    iconSize:     [43, 65], // size of the icon
+    iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
+    });
     var BlueIcon = L.icon({
     iconUrl: 'data/poleicoblue.png',
     iconSize:     [43, 65], // size of the icon
     iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
     popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
     });
+    var PinkIcon = L.icon({
+    iconUrl: 'data/poleicopink.png',
+    iconSize:     [43, 65], // size of the icon
+    iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
+    });
+    var RedIcon = L.icon({
+    iconUrl: 'data/poleicored.png',
+    iconSize:     [43, 65], // size of the icon
+    iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
+    });
+    var Icon;
     data.forEach(lieu => {
-        
+        switch (lieu.type) {
+          case 'école':
+            Icon = GreenIcon;
+            break;
+          case 'concurrent':
+            Icon = RedIcon;
+            break;
+          case 'evenement':
+            Icon = PinkIcon;
+            break;
+          default:
+            Icon = BlueIcon;
+        }
         if (lieu.latitude && lieu.longitude) {
-            var marker = L.marker([parseFloat(lieu.latitude), parseFloat(lieu.longitude)], {icon: BlueIcon}).addTo(map);
+            var marker = L.marker([parseFloat(lieu.latitude), parseFloat(lieu.longitude)], {icon: Icon}).addTo(map);
             marker.bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse}`);
         }
     });

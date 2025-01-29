@@ -85,19 +85,19 @@ function ajouterMarqueurs(data) {
     var BlueIcon = L.icon({
     iconUrl: 'data/poleicoblue.png',
     iconSize:     [43, 65], // size of the icon
-    iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
+    iconAnchor:   [20, 65], // point of the icon which will correspond to marker's location
     popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
     });
     var PinkIcon = L.icon({
     iconUrl: 'data/poleicopink.png',
     iconSize:     [43, 65], // size of the icon
-    iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
+    iconAnchor:   [23, 65], // point of the icon which will correspond to marker's location
     popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
     });
     var RedIcon = L.icon({
     iconUrl: 'data/poleicored.png',
     iconSize:     [43, 65], // size of the icon
-    iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
+    iconAnchor:   [19, 65], // point of the icon which will correspond to marker's location
     popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
     });
     var Icon;

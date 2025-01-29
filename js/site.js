@@ -40,8 +40,8 @@ function initMap() {
         chargerCSV('./data/data');
             var ExoIcon = L.icon({
             iconUrl: 'data/Logo Exotea.png',
-            iconSize:     [43, 65], // size of the icon
-            iconAnchor:   [21, 65], // point of the icon which will correspond to marker's location
+            iconSize:     [60, 60], // size of the icon
+            iconAnchor:   [30, 30], // point of the icon which will correspond to marker's location
             popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
         });
         var marker = L.marker([43.606056535595776, 1.428372974796818], {icon: ExoIcon}).addTo(map);

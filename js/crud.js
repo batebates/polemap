@@ -1,4 +1,4 @@
-const API_URL = "http://90.107.181.200:3000/lieux";
+const API_URL = "http://148.113.45.125:3000/lieux";
 // Charger les lieux depuis l'API
 function chargerLieux() {
     fetch(API_URL)

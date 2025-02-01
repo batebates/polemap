@@ -118,6 +118,19 @@ function chargerLieux() {
             });
             var Icon;
             data.forEach(lieu => {
+                switch (lieu.type) {
+                  case 'école':
+                    Icon = GreenIcon;
+                    break;
+                  case 'concurrent':
+                    Icon = RedIcon;
+                    break;
+                  case 'evenement':
+                    Icon = PinkIcon;
+                    break;
+                  default:
+                    Icon = BlueIcon;
+                }
                 let marker = L.marker([lieu.latitude, lieu.longitude], {icon: Icon}).addTo(map)
                     .bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse} <br>
                     <button onclick="supprimerLieu(${lieu.id})">🗑 Supprimer</button>`);

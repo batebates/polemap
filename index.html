@@ -14,13 +14,13 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <link rel='stylesheet' type='text/css' href='css/style.css' /> 
 </head>
 <body>
 <div id="auth-container">
-     <h2>Accès restreint</h2>
+     <h2>🔐 Accès restreint</h2>
      <p>Veuillez entrer le mot de passe pour accéder à la carte.</p>
      <input type="password" id="password" placeholder="Mot de passe">
      <button onclick="verifierMotDePasse()">Accéder</button>
@@ -29,6 +29,14 @@
 <div id="map-container">
      <h2>🗺 Carte des lieux</h2>
      <div id="map"></div>
+    <h3>Ajouter un lieu</h3>
+    <input type="text" id="nom" placeholder="Nom">
+    <input type="text" id="adresse" placeholder="Adresse">
+    <input type="number" id="latitude" placeholder="Latitude">
+    <input type="number" id="longitude" placeholder="Longitude">
+    <button onclick="ajouterLieu()">Ajouter</button>
+     <h3>Lieux enregistrés</h3>
+    <ul id="lieux-list"></ul>
 </div>
 
 <script src='js/site.js'></script>

@@ -29,14 +29,19 @@
 <div id="map-container">
      <h2>🗺 Carte des lieux</h2>
      <div id="map"></div>
-    <h3>Ajouter un lieu</h3>
-    <input type="text" id="nom" placeholder="Nom">
-    <input type="text" id="adresse" placeholder="Adresse">
-    <input type="number" id="latitude" placeholder="Latitude">
-    <input type="number" id="longitude" placeholder="Longitude">
-    <button onclick="ajouterLieu()">Ajouter</button>
-     <h3>Lieux enregistrés</h3>
-    <ul id="lieux-list"></ul>
+    <div id="lieu-creation">
+         <h3>Ajouter un lieu</h3>
+         <input type="text" id="nom" placeholder="Nom">
+         <input type="text" id="adresse" placeholder="Adresse">
+         <input type="number" id="latitude" placeholder="Latitude">
+         <input type="number" id="longitude" placeholder="Longitude">
+         <button onclick="ajouterLieu()">Ajouter</button>
+    </div>
+    <div id="lieu-modification">
+         <h3>Lieux enregistrés</h3>
+         <ul id="lieux-list"></ul>
+         <script src='crud/site.js'></script>
+    </div>
 </div>
 
 <script src='js/site.js'></script>

@@ -158,7 +158,7 @@ function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
 
     return true; //must return a boolean, true if it passes the filter.
 }
-var table = new Tabulator("#bdd-table", {
+let table = new Tabulator("#bdd-table", {
     layout:"fitColumns",
     rowContextMenu: rowMenu,
     pagination:"local",

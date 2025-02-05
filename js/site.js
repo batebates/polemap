@@ -85,7 +85,6 @@ var headerMenu = function(){
 var table = new Tabulator("#bdd-table", {
     height:"311px",
     layout:"fitColumns",
-    autoColumns:true,
     columns:[
         {title:"Id", field:"id",sorter:"number", headerMenu:headerMenu},
         {title:"Nom", field:"nom", hozAlign:"center", headerMenu:headerMenu},

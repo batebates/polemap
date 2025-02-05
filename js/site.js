@@ -226,7 +226,7 @@ function chargerMap() {
     
     if (map) {
         map.eachLayer(layer => {
-            if (!!layer.toGeoJSON) {
+            if (layer.toGeoJSON) {
                 map.removeLayer(layer);
             }
         });

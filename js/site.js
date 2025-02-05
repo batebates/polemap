@@ -195,11 +195,7 @@ let table = new Tabulator("#bdd-table", {
         chargerMap();
     }
 });
-table.on("dataFiltered", function(filters, rows){
-    //filters - array of filters currently applied
-    //rows - array of row components that pass the filters
-    chargerMap();
-});
+
 
 // Vérifier le mot de passe
 function verifierMotDePasse() {

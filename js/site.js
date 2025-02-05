@@ -188,6 +188,12 @@ let table = new Tabulator("#bdd-table", {
         {title:"Date de la création", field:"time_creation", headerMenu:headerMenu,visible:false, sorter:"date",  headerFilter:"input"},
         {title:"Date de la dernière update", field:"time_last_update", headerMenu:headerMenu,visible:false, sorter:"date",  headerFilter:"input"},
     ],
+    dataLoaded: function() {
+        chargerMap();
+    },
+    dataFiltered: function() {
+        chargerMap();
+    }
 });
 
 // Vérifier le mot de passe
@@ -222,13 +228,19 @@ function chargerMap(data) {
         map.invalidateSize(); // Corrige les problèmes d'affichage
         return;
     }
-    
-    map = L.map('map').setView([43.606346535595776, 1.429172974796818], 13);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
+    if (map) {
+        map.eachLayer(layer => {
+            if (!!layer.toGeoJSON) {
+                map.removeLayer(layer);
+            }
+        });
+    } else {
+        map = L.map('map').setView([43.606346535595776, 1.429172974796818], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    }
 
     // Après affichage, forcer Leaflet à recalculer la taille de la carte
     setTimeout(() => {

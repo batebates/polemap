@@ -224,16 +224,10 @@ function chargerLieux() {
 
 function chargerMap() {
     
-        // Vérifier si la carte n'existe pas déjà (évite les doublons)
-    if (map) {
-        map.invalidateSize(); // Corrige les problèmes d'affichage
-        return;
-    }
     if (map) {
         map.eachLayer(layer => {
             if (!!layer.toGeoJSON) {
                 map.removeLayer(layer);
-                console.log("Clean des layers");
             }
         });
     } else {

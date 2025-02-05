@@ -96,7 +96,6 @@ function chargerLieux() {
     fetch(API_URL)
         .then(response => response.json())
         .then(data => {
-            document.getElementById("lieux-list").innerHTML = "";
             var GreenIcon = L.icon({
             iconUrl: 'data/poleicoblack.png',
             iconSize:     [43, 65], // size of the icon
@@ -171,6 +170,3 @@ function supprimerLieu(id) {
         .then(() => chargerLieux());
 }
 
-table.on("tableBuilt", () => {
-  table.setPage(1);
-});

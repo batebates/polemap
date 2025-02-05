@@ -214,7 +214,7 @@ function chargerMap(data) {
         map.invalidateSize(); // Corrige les problèmes d'affichage
         return;
     }
-
+    
     map = L.map('map').setView([43.606346535595776, 1.429172974796818], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -263,6 +263,7 @@ function chargerMap(data) {
     var Icon;
     Object.keys(data).forEach(key => {
         let lieu = data[key];
+        console.log("Traitement de ", data[key]);
         switch (lieu.type) {
           case 'ecole':
             Icon = GreenIcon;

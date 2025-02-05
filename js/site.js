@@ -211,6 +211,7 @@ function chargerLieux() {
         .then(response => response.json())
         .then(data => {
             table.setData(data);
+            chargerMap();
         });
 }
 

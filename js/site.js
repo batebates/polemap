@@ -140,11 +140,6 @@ function chargerLieux() {
                         .bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse} <br>
                         <button onclick="supprimerLieu(${lieu.id})">🗑 Supprimer</button>`);
                 }
-
-                let li = document.createElement("li");
-                li.innerHTML = `${lieu.nom} - ${lieu.adresse}
-                    <button onclick="supprimerLieu(${lieu.id})">🗑 Supprimer</button>`;
-                document.getElementById("lieux-list").appendChild(li);
             });
             table.setData(data);
         });

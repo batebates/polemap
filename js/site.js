@@ -195,7 +195,9 @@ let table = new Tabulator("#bdd-table", {
         chargerMap();
     }
 });
-
+table.on("rowClick", function(e, row){
+    alert("Row " + row.getIndex() + " Clicked!!!!")
+});
 
 // Vérifier le mot de passe
 function verifierMotDePasse() {

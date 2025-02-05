@@ -7,9 +7,7 @@ var table = new Tabulator("#bdd-table", {
     layout:"fitColumns",
     autoColumns:true
 });
-table.on("tableBuilt", () => {
-  table.setPage(2);
-});
+
 // Vérifier le mot de passe
 function verifierMotDePasse() {
     let mdpUtilisateur = document.getElementById("password").value;
@@ -173,4 +171,6 @@ function supprimerLieu(id) {
         .then(() => chargerLieux());
 }
 
-
+table.on("tableBuilt", () => {
+  table.setPage(1);
+});

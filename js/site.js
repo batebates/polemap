@@ -206,6 +206,14 @@ function verifierMotDePasse() {
         document.getElementById("error-message").textContent = "Mot de passe incorrect.";
     }
 }
+// Charger les lieux depuis l'API
+function chargerLieux() {
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+            table.setData(data);
+        });
+}
 
 function chargerMap(data) {
     var data = table.getData("active");
@@ -287,14 +295,7 @@ function chargerMap(data) {
         });
 }
 
-// Charger les lieux depuis l'API
-function chargerLieux() {
-    fetch(API_URL)
-        .then(response => response.json())
-        .then(data => {
-            table.setData(data);
-        });
-}
+
 
 
 // 📌 Ajouter un lieu

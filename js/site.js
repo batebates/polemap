@@ -222,8 +222,8 @@ function chargerLieux() {
         });
 }
 
-function chargerMap(data) {
-    var data = table.getData("active");
+function chargerMap() {
+    
         // Vérifier si la carte n'existe pas déjà (évite les doublons)
     if (map) {
         map.invalidateSize(); // Corrige les problèmes d'affichage
@@ -233,6 +233,7 @@ function chargerMap(data) {
         map.eachLayer(layer => {
             if (!!layer.toGeoJSON) {
                 map.removeLayer(layer);
+                console.log("Clean des layers");
             }
         });
     } else {
@@ -247,7 +248,7 @@ function chargerMap(data) {
     setTimeout(() => {
         map.invalidateSize();
     }, 300);
-
+    let dataFiltered = table.getData("active");
     var ExoIcon = L.icon({
     iconUrl: 'data/Logo Exotea.png',
     iconSize:     [60, 60], // size of the icon
@@ -284,9 +285,8 @@ function chargerMap(data) {
     var Icon;
     console.log("call data 0 ", data);
     console.error("call data 0 ", data);
-    Object.keys(data).forEach(key => {
-        let lieu = data[key];
-        console.log("Traitement de ", data[key]);
+    Object.keys(dataFiltered).forEach(key => {
+        let lieu = dataFiltered[key];
         switch (lieu.type) {
           case 'ecole':
             Icon = GreenIcon;

@@ -91,22 +91,22 @@ var table = new Tabulator("#bdd-table", {
         {title:"Nom", field:"nom", hozAlign:"center", headerMenu:headerMenu},
         {title:"Latitude", field:"latitude", headerMenu:headerMenu, visible:false },
         {title:"Longitude", field:"longitude", hozAlign:"center", headerMenu:headerMenu, visible:false},
-        {title:"Adresse", field:"adresse", headerMenu:headerMenu}
-        {title:"Statut d'activité", field:"active", headerMenu:headerMenu}
-        {title:"Début", field:"date_start", headerMenu:headerMenu}
-        {title:"Fin", field:"date_end", headerMenu:headerMenu}
-        {title:"Type de lieu", field:"type", headerMenu:headerMenu,visible:false}
-        {title:"Email", field:"mail", headerMenu:headerMenu,visible:false}
-        {title:"Téléphone", field:"phone", headerMenu:headerMenu,visible:false}
-        {title:"Facebook", field:"facebook", headerMenu:headerMenu,visible:false}
-        {title:"Instagram", field:"instagram", headerMenu:headerMenu,visible:false}
-        {title:"Site Web", field:"site_web", headerMenu:headerMenu,visible:false}
-        {title:"Status du contact", field:"status_contact", headerMenu:headerMenu}
-        {title:"Status de la relation", field:"status_relation", headerMenu:headerMenu}
-        {title:"Commentaire", field:"commentaire", headerMenu:headerMenu}
-        {title:"Source", field:"source", headerMenu:headerMenu,visible:false}
-        {title:"Date de la création", field:"time_creation", headerMenu:headerMenu,visible:false}
-        {title:"Date de la dernière update", field:"time_last_update", headerMenu:headerMenu,visible:false}
+        {title:"Adresse", field:"adresse", headerMenu:headerMenu},
+        {title:"Statut d'activité", field:"active", headerMenu:headerMenu},
+        {title:"Début", field:"date_start", headerMenu:headerMenu},
+        {title:"Fin", field:"date_end", headerMenu:headerMenu},
+        {title:"Type de lieu", field:"type", headerMenu:headerMenu,visible:false},
+        {title:"Email", field:"mail", headerMenu:headerMenu,visible:false},
+        {title:"Téléphone", field:"phone", headerMenu:headerMenu,visible:false},
+        {title:"Facebook", field:"facebook", headerMenu:headerMenu,visible:false},
+        {title:"Instagram", field:"instagram", headerMenu:headerMenu,visible:false},
+        {title:"Site Web", field:"site_web", headerMenu:headerMenu,visible:false},
+        {title:"Status du contact", field:"status_contact", headerMenu:headerMenu},
+        {title:"Status de la relation", field:"status_relation", headerMenu:headerMenu},
+        {title:"Commentaire", field:"commentaire", headerMenu:headerMenu},
+        {title:"Source", field:"source", headerMenu:headerMenu,visible:false},
+        {title:"Date de la création", field:"time_creation", headerMenu:headerMenu,visible:false},
+        {title:"Date de la dernière update", field:"time_last_update", headerMenu:headerMenu,visible:false},
     ],
 });
 

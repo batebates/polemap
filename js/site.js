@@ -81,32 +81,119 @@ var headerMenu = function(){
 
    return menu;
 };
+//custom max min header filter
+var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParams){
 
+    var end;
+
+    var container = document.createElement("span");
+
+    //create and style inputs
+    var start = document.createElement("input");
+    start.setAttribute("type", "number");
+    start.setAttribute("placeholder", "Min");
+    start.setAttribute("min", 0);
+    start.setAttribute("max", 100);
+    start.style.padding = "4px";
+    start.style.width = "50%";
+    start.style.boxSizing = "border-box";
+
+    start.value = cell.getValue();
+
+    function buildValues(){
+        success({
+            start:start.value,
+            end:end.value,
+        });
+    }
+
+    function keypress(e){
+        if(e.keyCode == 13){
+            buildValues();
+        }
+
+        if(e.keyCode == 27){
+            cancel();
+        }
+    }
+
+    end = start.cloneNode();
+    end.setAttribute("placeholder", "Max");
+
+    start.addEventListener("change", buildValues);
+    start.addEventListener("blur", buildValues);
+    start.addEventListener("keydown", keypress);
+
+    end.addEventListener("change", buildValues);
+    end.addEventListener("blur", buildValues);
+    end.addEventListener("keydown", keypress);
+
+
+    container.appendChild(start);
+    container.appendChild(end);
+
+    return container;
+ }
+
+//custom max min filter function
+function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
+    //headerValue - the value of the header filter element
+    //rowValue - the value of the column in this row
+    //rowData - the data for the row being filtered
+    //filterParams - params object passed to the headerFilterFuncParams property
+
+        if(rowValue){
+            if(headerValue.start != ""){
+                if(headerValue.end != ""){
+                    return rowValue >= headerValue.start && rowValue <= headerValue.end;
+                }else{
+                    return rowValue >= headerValue.start;
+                }
+            }else{
+                if(headerValue.end != ""){
+                    return rowValue <= headerValue.end;
+                }
+            }
+        }
+
+    return true; //must return a boolean, true if it passes the filter.
+}
 var table = new Tabulator("#bdd-table", {
-    height:"100%",
+    height:"311px",
     layout:"fitDataStretch",
+    persistence:{
+      sort:true,
+      filter:true,
+      columns:true,
+    },
+    persistenceID:"examplePerststance",
     rowContextMenu: rowMenu,
+    pagination:"local",
+    paginationSize:10,
+    paginationSizeSelector:[10, 50, 100],
+    movableColumns:true,
+    paginationCounter:"rows",
     columns:[
-        {title:"Id", field:"id",sorter:"number", headerMenu:headerMenu},
-        {title:"Nom", field:"nom", hozAlign:"center", headerMenu:headerMenu},
-        {title:"Latitude", field:"latitude", headerMenu:headerMenu, visible:false },
+        {title:"Id", field:"id",sorter:"number", headerMenu:headerMenu, visible:false},
+        {title:"Nom", field:"nom", hozAlign:"center", headerMenu:headerMenu, headerFilter:"input"},
+        {title:"Latitude", field:"latitude", headerMenu:headerMenu, visible:false},
         {title:"Longitude", field:"longitude", hozAlign:"center", headerMenu:headerMenu, visible:false},
-        {title:"Adresse", field:"adresse", headerMenu:headerMenu},
-        {title:"Statut d'activité", field:"active", headerMenu:headerMenu},
-        {title:"Début", field:"date_start", headerMenu:headerMenu},
-        {title:"Fin", field:"date_end", headerMenu:headerMenu},
-        {title:"Type de lieu", field:"type", headerMenu:headerMenu,visible:false},
-        {title:"Email", field:"mail", headerMenu:headerMenu,visible:false},
-        {title:"Téléphone", field:"phone", headerMenu:headerMenu,visible:false},
-        {title:"Facebook", field:"facebook", headerMenu:headerMenu,visible:false},
-        {title:"Instagram", field:"instagram", headerMenu:headerMenu,visible:false},
-        {title:"Site Web", field:"site_web", headerMenu:headerMenu,visible:false},
-        {title:"Status du contact", field:"status_contact", headerMenu:headerMenu},
-        {title:"Status de la relation", field:"status_relation", headerMenu:headerMenu},
-        {title:"Commentaire", field:"commentaire", headerMenu:headerMenu},
-        {title:"Source", field:"source", headerMenu:headerMenu,visible:false},
-        {title:"Date de la création", field:"time_creation", headerMenu:headerMenu,visible:false},
-        {title:"Date de la dernière update", field:"time_last_update", headerMenu:headerMenu,visible:false},
+        {title:"Adresse", field:"adresse", headerMenu:headerMenu, headerFilter:"input"},
+        {title:"Statut d'activité", field:"active", headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Début", field:"date_start", headerMenu:headerMenu, sorter:"date",  headerFilter:"input"},
+        {title:"Fin", field:"date_end", headerMenu:headerMenu, sorter:"date",  headerFilter:"input"},
+        {title:"Type de lieu", field:"type", headerMenu:headerMenu,visible:false, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Email", field:"mail", headerMenu:headerMenu,visible:false,headerFilter:"input"},
+        {title:"Téléphone", field:"phone", headerMenu:headerMenu,visible:false,headerFilter:"input"},
+        {title:"Facebook", field:"facebook", headerMenu:headerMenu,visible:false,headerFilter:"input"},
+        {title:"Instagram", field:"instagram", headerMenu:headerMenu,visible:false,headerFilter:"input"},
+        {title:"Site Web", field:"site_web", headerMenu:headerMenu,visible:false,headerFilter:"input"},
+        {title:"Status du contact", field:"status_contact", headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Status de la relation", field:"status_relation", headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Commentaire", field:"commentaire", headerMenu:headerMenu,headerFilter:"input"},
+        {title:"Source", field:"source", headerMenu:headerMenu,visible:false,headerFilter:"input"},
+        {title:"Date de la création", field:"time_creation", headerMenu:headerMenu,visible:false, sorter:"date",  headerFilter:"input"},
+        {title:"Date de la dernière update", field:"time_last_update", headerMenu:headerMenu,visible:false, sorter:"date",  headerFilter:"input"},
     ],
 });
 

@@ -261,7 +261,8 @@ function chargerMap(data) {
     popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
     });
     var Icon;
-    data.forEach(lieu => {
+    Object.keys(data).forEach(key => {
+        let lieu = data[key];
         switch (lieu.type) {
           case 'ecole':
             Icon = GreenIcon;

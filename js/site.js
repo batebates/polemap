@@ -131,9 +131,11 @@ function chargerLieux() {
                   default:
                     Icon = BlueIcon;
                 }
-                let marker = L.marker([lieu.latitude, lieu.longitude], {icon: Icon}).addTo(map)
-                    .bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse} <br>
-                    <button onclick="supprimerLieu(${lieu.id})">🗑 Supprimer</button>`);
+                if (lieu.latitude && lieu.longitude) {
+                    let marker = L.marker([lieu.latitude, lieu.longitude], {icon: Icon}).addTo(map)
+                        .bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse} <br>
+                        <button onclick="supprimerLieu(${lieu.id})">🗑 Supprimer</button>`);
+                }
 
                 let li = document.createElement("li");
                 li.innerHTML = `${lieu.nom} - ${lieu.adresse}

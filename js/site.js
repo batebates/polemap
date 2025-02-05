@@ -261,6 +261,8 @@ function chargerMap(data) {
     popupAnchor:  [-2, -65] // point from which the popup should open relative to the iconAnchor
     });
     var Icon;
+    console.log("call data 0 ", data);
+    console.error("call data 0 ", data);
     Object.keys(data).forEach(key => {
         let lieu = data[key];
         console.log("Traitement de ", data[key]);

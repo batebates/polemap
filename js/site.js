@@ -119,13 +119,13 @@ function chargerLieux() {
             var Icon;
             data.forEach(lieu => {
                 switch (lieu.type) {
-                  case 'école':
+                  case 'ecole':
                     Icon = GreenIcon;
                     break;
                   case 'concurrent':
                     Icon = RedIcon;
                     break;
-                  case 'evenement':
+                  case 'event':
                     Icon = PinkIcon;
                     break;
                   default:

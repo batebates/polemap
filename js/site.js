@@ -160,12 +160,6 @@ function minMaxFilterFunction(headerValue, rowValue, rowData, filterParams){
 }
 var table = new Tabulator("#bdd-table", {
     layout:"fitColumns",
-    persistence:{
-      sort:true,
-      filter:true,
-      columns:true,
-    },
-    persistenceID:"examplePerststance",
     rowContextMenu: rowMenu,
     pagination:"local",
     paginationSize:10,

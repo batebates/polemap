@@ -188,12 +188,11 @@ let table = new Tabulator("#bdd-table", {
         {title:"Date de la création", field:"time_creation", headerMenu:headerMenu,visible:false, sorter:"date",  headerFilter:"input"},
         {title:"Date de la dernière update", field:"time_last_update", headerMenu:headerMenu,visible:false, sorter:"date",  headerFilter:"input"},
     ],
-    dataLoaded: function() {
-        chargerMap();
-    },
-    dataFiltered: function() {
-        chargerMap();
-    }
+});
+table.on("dataFiltered", function(filters, rows){
+    //filters - array of filters currently applied
+    //rows - array of row components that pass the filters
+    chargerMap();
 });
 
 // Vérifier le mot de passe

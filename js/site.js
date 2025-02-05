@@ -201,7 +201,7 @@ function verifierMotDePasse() {
         // Attendre un court instant avant d'initialiser la carte
         setTimeout(chargerLieux, 100);
         
-        setTimeout(chargerMap, 100);
+        setTimeout(chargerMap, 200);
     } else {
         document.getElementById("error-message").textContent = "Mot de passe incorrect.";
     }

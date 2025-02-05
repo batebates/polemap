@@ -2,20 +2,14 @@
 const HASH_STOCKE = "6cc4f9e81df815c52e73b1562df40607"; // MD5("Amusez-vous")
 const API_URL = "http://148.113.45.125:3000/lieux";
 let map;
-var table; new Tabulator("#example-table", {
+var table = new Tabulator("#bdd-table", {
     height:"311px",
     layout:"fitColumns",
-    columns:[
-        {title:"Name", field:"name", width:150, headerFilter:"input"},
-        {title:"Progress", field:"progress", width:150, formatter:"progress", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
-        {title:"Gender", field:"gender", editor:"list", editorParams:{values:{"male":"Male", "female":"Female", clearable:true}}, headerFilter:true, headerFilterParams:{values:{"male":"Male", "female":"Female", "":""}, clearable:true}},
-        {title:"Rating", field:"rating", editor:"star", hozAlign:"center", width:100, headerFilter:"number", headerFilterPlaceholder:"at least...", headerFilterFunc:">="},
-        {title:"Favourite Color", field:"col", editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
-        {title:"Date Of Birth", field:"dob", hozAlign:"center", sorter:"date",  headerFilter:"input"},
-        {title:"Driver", field:"car", hozAlign:"center", formatter:"tickCross",  headerFilter:"tickCross",  headerFilterParams:{"tristate":true},headerFilterEmptyCheck:function(value){return value === null}},
-    ],
+    autoColumns:true
 });
-
+table.on("tableBuilt", () => {
+  table.setPage(2);
+});
 // Vérifier le mot de passe
 function verifierMotDePasse() {
     let mdpUtilisateur = document.getElementById("password").value;
@@ -155,6 +149,7 @@ function chargerLieux() {
                     <button onclick="supprimerLieu(${lieu.id})">🗑 Supprimer</button>`;
                 document.getElementById("lieux-list").appendChild(li);
             });
+            table.setData(data);
         });
 }
 

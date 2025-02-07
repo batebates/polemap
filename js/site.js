@@ -195,7 +195,7 @@ let table = new Tabulator("#bdd-table", {
         chargerMap();
     }
 });
-table.on("tableBuilt", function(){
+table.on("renderComplete", function(){
     chargerMap();
 });
 // Vérifier le mot de passe

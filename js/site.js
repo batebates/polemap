@@ -1,7 +1,37 @@
 // 🔐 Stocker le hash du mot de passe (mot de passe : "monSuperMotDePasse123")
 const HASH_STOCKE = "6cc4f9e81df815c52e73b1562df40607"; // MD5("Amusez-vous")
 const API_URL = "http://148.113.45.125:3000/lieux";
+// Coordonnées d'Exotea à Toulouse
+const EXOTEA_LAT = 43.606056535595776;
+const EXOTEA_LON = 1.428372974796818;
 let map;
+
+/**
+ * Calcule la distance entre deux points GPS en km avec la formule de Haversine
+ * @param {number} lat1 - Latitude du premier point
+ * @param {number} lon1 - Longitude du premier point
+ * @param {number} lat2 - Latitude du second point
+ * @param {number} lon2 - Longitude du second point
+ * @returns {number} Distance en kilomètres
+ */
+function haversineDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Rayon moyen de la Terre en km
+    const toRadians = angle => (angle * Math.PI) / 180;
+
+    const φ1 = toRadians(lat1);
+    const φ2 = toRadians(lat2);
+    const Δφ = toRadians(lat2 - lat1);
+    const Δλ = toRadians(lon2 - lon1);
+
+    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+              Math.cos(φ1) * Math.cos(φ2) *
+              Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c; // Distance en km
+}
+
+
 //define row context menu contents
 var rowMenu = [
     {
@@ -171,6 +201,7 @@ let table = new Tabulator("#bdd-table", {
         {title:"Nom", field:"nom", hozAlign:"center", headerMenu:headerMenu, headerFilter:"input"},
         {title:"Latitude", field:"latitude", headerMenu:headerMenu, visible:false},
         {title:"Longitude", field:"longitude", hozAlign:"center", headerMenu:headerMenu, visible:false},
+        {title:"Distance (km)", field:"distance", headerMenu:headerMenu, sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
         {title:"Adresse", field:"adresse", headerMenu:headerMenu, headerFilter:"input"},
         {title:"Statut d'activité", field:"active", headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
         {title:"Début", field:"date_start", headerMenu:headerMenu, sorter:"date",  headerFilter:"input"},
@@ -218,6 +249,14 @@ function chargerLieux() {
     fetch(API_URL)
         .then(response => response.json())
         .then(data => {
+            // Ajouter le champ "distance" pour chaque lieu
+            data.forEach(lieu => {
+                if (lieu.latitude && lieu.longitude) {
+                    lieu.distance = haversineDistance(EXOTEA_LAT, EXOTEA_LON, lieu.latitude, lieu.longitude).toFixed(2);
+                } else {
+                    lieu.distance = ""; // Si pas de coordonnées GPS
+                }
+            });
             table.setData(data);
             chargerMap();
         });

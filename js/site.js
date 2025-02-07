@@ -197,7 +197,7 @@ let table = new Tabulator("#bdd-table", {
 });
 $("#bdd-table .tabulator-header-filter input").each(function(){
     var value = $(this).val();
-    var field= $(this).closest(".tabulator-col").data("field"));
+    var field= $(this).closest(".tabulator-col").data("field");
 
     if (value !== ""){
         chargerMap();

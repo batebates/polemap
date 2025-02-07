@@ -195,8 +195,13 @@ let table = new Tabulator("#bdd-table", {
         chargerMap();
     }
 });
-table.on("rowClick", function(e, row){
-    chargerMap();
+$("#bdd-table .tabulator-header-filter input").each(function(){
+    var value = $(this).val();
+    var field= $(this).closest(".tabulator-col").data("field"));
+
+    if (value !== ""){
+        chargerMap();
+    }
 });
 
 // Vérifier le mot de passe

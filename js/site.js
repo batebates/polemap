@@ -195,15 +195,9 @@ let table = new Tabulator("#bdd-table", {
         chargerMap();
     }
 });
-$("#bdd-table .tabulator-header-filter input").each(function(){
-    var value = $(this).val();
-    var field= $(this).closest(".tabulator-col").data("field");
-
-    if (value !== ""){
-        chargerMap();
-    }
+table.on("tableBuilt", function(){
+    chargerMap();
 });
-
 // Vérifier le mot de passe
 function verifierMotDePasse() {
     let mdpUtilisateur = document.getElementById("password").value;

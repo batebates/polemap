@@ -37,17 +37,20 @@
      <h2>Ajouter un lieu</h2>
      <form id="form-ajout-lieu">
 
-       <!-- Nom du lieu -->
-       <div>
-         <label for="nom">Nom du lieu</label>
-         <input type="text" id="nom" name="nom" placeholder="Nom du lieu">
-       </div>
-     
-       <!-- Adresse -->
-       <div>
-         <label for="adresse">Adresse</label>
-         <input type="text" id="adresse" name="adresse" placeholder="Adresse">
-       </div>
+     <!-- Informations sur le lieu -->
+     <fieldset>
+      <legend>Informations sur le lieu</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nom">Nom du lieu</label>
+          <input type="text" id="nom" name="nom" placeholder="Nom du lieu">
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse</label>
+          <input type="text" id="adresse" name="adresse" placeholder="Adresse">
+        </div>
+      </div>
+     </fieldset>
      
        <!-- Coordonnées -->
        <div>
@@ -62,7 +65,7 @@
        <!-- Statut actif -->
        <div>
          <p>Statut actif:</p>
-          <input type="radio" id="Active" name="statut_actif" value="Active">
+          <input type="radio" id="Active" name="statut_actif" value="Active" checked="checked">
           <label for="Active">Active</label><br>
           <input type="radio" id="Inactive" name="statut_actif" value="Inactive">
           <label for="Inactive">Inactive</label><br>
@@ -73,12 +76,12 @@
           <label for="relation_interested">Intéressé</label><br>
           <input type="radio" id="relation_notinterested" name="statut_relation" value="pas intéressé">
           <label for="relation_notinterested">Pas intéressé</label><br>
-          <input type="radio" id="relation_unknown" name="statut_relation" value="Unknown" selected>
+          <input type="radio" id="relation_unknown" name="statut_relation" value="Unknown" checked="checked">
           <label for="relation_unknown">Unknown</label><br>
        </div>
        <div>
           <p>Statut Contact:</p>
-          <input type="radio" id="contact_tocontact" name="statut_contact" value="à contacter" selected>
+          <input type="radio" id="contact_tocontact" name="statut_contact" value="à contacter" checked="checked">
           <label for="contact_tocontact">à contacter</label><br>
           <input type="radio" id="contact_contacted" name="statut_contact" value="contacté">
           <label for="contact_contacted">contacté</label><br>

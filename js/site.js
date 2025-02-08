@@ -277,6 +277,9 @@ let table = new Tabulator("#bdd-table", {
 table.on("renderComplete", function(){
     chargerMap();
 });
+table.on("cellEdited", function(cell){
+        modifierLieu(cell.getRow().getData());
+});
 // Vérifier le mot de passe
 function verifierMotDePasse() {
     let mdpUtilisateur = document.getElementById("password").value;
@@ -411,3 +414,11 @@ function supprimerLieu(id) {
         .then(() => chargerLieux());
 }
 
+function modifierLieu(data) {
+    fetch(`${API_URL}/${data.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    }).then(response => response.json())
+      .then(() => chargerLieux());
+}

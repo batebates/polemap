@@ -61,14 +61,30 @@
      
        <!-- Statut actif -->
        <div>
-         <label for="active">Statut actif</label>
-         <select id="active" name="active">
-           <option value="Active" selected>Active</option>
-           <option value="Inactive">Inactive</option>
-           <option value="unknown" >Unknown</option>
-         </select>
+         <p>Statut actif:</p>
+          <input type="radio" id="Active" name="statut_actif" value="Active">
+          <label for="Active">Active</label><br>
+          <input type="radio" id="Inactive" name="statut_actif" value="Inactive">
+          <label for="Inactive">Inactive</label><br>
        </div>
-     
+     <div>
+          <p>Statut Relation:</p>
+          <input type="radio" id="relation_interested" name="statut_relation" value="intéressé">
+          <label for="relation_interested">Intéressé</label><br>
+          <input type="radio" id="relation_notinterested" name="statut_relation" value="pas intéressé">
+          <label for="relation_notinterested">Pas intéressé</label><br>
+          <input type="radio" id="relation_unknown" name="statut_relation" value="Unknown" selected>
+          <label for="relation_unknown">Unknown</label><br>
+       </div>
+       <div>
+          <p>Statut Contact:</p>
+          <input type="radio" id="contact_tocontact" name="statut_contact" value="à contacter" selected>
+          <label for="contact_tocontact">à contacter</label><br>
+          <input type="radio" id="contact_contacted" name="statut_contact" value="contacté">
+          <label for="contact_contacted">contacté</label><br>
+          <input type="radio" id="contact_needresponse" name="statut_contact" value="doit répondre">
+          <label for="contact_needresponse">doit répondre</label><br>
+       </div>
        <!-- Type du lieu -->
        <div>
          <label for="type">Type</label>
@@ -122,30 +138,8 @@
          <label for="description">Description</label>
          <textarea id="description" name="description" placeholder="Description"></textarea>
        </div>
-     
-       <!-- Statuts et commentaires -->
-       <div>
-         <label for="status_relation">Statut Relation</label>
-         <input type="text" id="status_relation" name="status_relation" placeholder="Statut Relation" value="unknown">
-       </div>
-        <!-- Type du lieu -->
-       <div>
-         <label for="status_contact">Statut Contact</label>
-         <select id="status_contact" name="status_contact">
-           <option value="tocontact" selected>à contacter</option>
-           <option value="concurrent">contacté</option>
-           <option value="event">doit répondre</option>
-         </select>
-       </div>
-       <!-- Type du lieu -->
-       <div>
-         <label for="type">Type</label>
-         <select id="type" name="type">
-           <option value="intéressé">intéressé</option>
-           <option value="pas intéressé">pas intéressé</option>
-           <option value="unknown" selected>Unknown</option>
-         </select>
-       </div>
+
+
        <div>
          <label for="commentaire">Commentaire</label>
          <textarea id="commentaire" name="commentaire" placeholder="Commentaire"></textarea>

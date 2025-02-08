@@ -34,3 +34,26 @@ h1, h2 {
 .elementor *, .elementor :after, .elementor :before {
     box-sizing: border-box;
 }
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #111;
+    font-size: 14px;
+    font-weight: 600;
+}
+input{
+    outline: 0;
+    margin-bottom: 0;
+    border: 1px solid #d2d6dc;
+    border-radius: .3rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+    height: 40px;
+    padding: 0 .7em;
+    font-family: Tahoma;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #000000;
+    vertical-align: baseline;
+    touch-action: manipulation;
+}

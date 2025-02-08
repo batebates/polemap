@@ -201,7 +201,7 @@ let table = new Tabulator("#bdd-table", {
         {title:"Nom", field:"nom", hozAlign:"center", headerMenu:headerMenu, headerFilter:"input"},
         {title:"Latitude", field:"latitude", headerMenu:headerMenu, visible:false},
         {title:"Longitude", field:"longitude", hozAlign:"center", headerMenu:headerMenu, visible:false},
-        {title:"Distance (km)", field:"distance", headerMenu:headerMenu, sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
+        {title:"Distance (km)", field:"distance", headerMenu:headerMenu, sorter:"number", hozAlign:"center", headerFilter:"number", headerFilterPlaceholder:"Max", headerFilterFunc:"<="},
         {title:"Adresse", field:"adresse", headerMenu:headerMenu, headerFilter:"input"},
         {title:"Statut d'activité", field:"active", headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
         {title:"Début", field:"date_start", headerMenu:headerMenu, sorter:"date",  headerFilter:"input"},
@@ -252,7 +252,7 @@ function chargerLieux() {
             // Ajouter le champ "distance" pour chaque lieu
             data.forEach(lieu => {
                 if (lieu.latitude && lieu.longitude) {
-                    lieu.distance = haversineDistance(EXOTEA_LAT, EXOTEA_LON, lieu.latitude, lieu.longitude).toFixed(2);
+                    lieu.distance = haversineDistance(EXOTEA_LAT, EXOTEA_LON, lieu.latitude, lieu.longitude).toFixed(1);
                 } else {
                     lieu.distance = ""; // Si pas de coordonnées GPS
                 }

@@ -57,7 +57,7 @@ input{
     vertical-align: baseline;
     touch-action: manipulation;
 }
-.button {
+button {
     width: auto;
     background-color: #74547e;
     color: #fff;

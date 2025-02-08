@@ -73,10 +73,15 @@
       <div class="form-row">
         <div class="form-group">
           <p>Statut actif :</p>
-          <input type="radio" id="Active" name="statut_actif" value="Active" checked>
-          <label for="Active">Active</label>
-          <input type="radio" id="Inactive" name="statut_actif" value="Inactive">
-          <label for="Inactive">Inactive</label>
+          
+          <label class="radio-option" for="Active">
+               <input type="radio" id="Active" name="statut_actif" value="Active" checked>
+               Active
+          </label>
+          <label class="radio-option" for="Inactive">
+               <input type="radio" id="Inactive" name="statut_actif" value="Inactive">
+               Inactive
+          </label>
         </div>
           <div class="form-group">
             <p>Statut Relation :</p>
@@ -94,19 +99,19 @@
             </label>
           </div>
         <div class="form-group">
-          <p>Statut Contact :</p>
-          <div class="form-row">
-          <label for="contact_tocontact">à contacter</label>
-          <input type="radio" id="contact_tocontact" name="statut_contact" value="à contacter" checked>
-          </div>
-          <div class="form-row">
-          <label for="contact_contacted">contacté</label>
-          <input type="radio" id="contact_contacted" name="statut_contact" value="contacté">
-          </div>
-          <div class="form-row">
-          <label for="contact_needresponse">doit répondre</label>
-          <input type="radio" id="contact_needresponse" name="statut_contact" value="doit répondre">
-          </div>
+            <p>Statut Contact :</p>
+            <label class="radio-option" for="contact_tocontact">
+              <input type="radio" id="contact_tocontact" name="statut_contact" value="à contacter" checked>
+              à contacter
+            </label>
+            <label class="radio-option" for="contact_contacted">
+              <input type="radio" id="contact_contacted" name="statut_contact" value="contacté">
+              contacté
+            </label>
+            <label class="radio-option" for="contact_needresponse">
+              <input type="radio" id="contact_needresponse" name="statut_contact" value="doit répondre">
+              doit répondre
+            </label>
         </div>
       </div>
     </fieldset>     

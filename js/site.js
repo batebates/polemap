@@ -31,6 +31,54 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
     return R * c; // Distance en km
 }
 
+//Create Date Editor
+var dateEditor = function(cell, onRendered, success, cancel){
+    //cell - the cell component for the editable cell
+    //onRendered - function to call when the editor has been rendered
+    //success - function to call to pass thesuccessfully updated value to Tabulator
+    //cancel - function to call to abort the edit and return to a normal cell
+
+    //create and style input
+    var cellValue = luxon.DateTime.fromFormat(cell.getValue(), "dd/MM/yyyy").toFormat("yyyy-MM-dd"),
+    input = document.createElement("input");
+
+    input.setAttribute("type", "date");
+
+    input.style.padding = "4px";
+    input.style.width = "100%";
+    input.style.boxSizing = "border-box";
+
+    input.value = cellValue;
+
+    onRendered(function(){
+        input.focus();
+        input.style.height = "100%";
+    });
+
+    function onChange(){
+        if(input.value != cellValue){
+            success(luxon.DateTime.fromFormat(input.value, "yyyy-MM-dd").toFormat("dd/MM/yyyy"));
+        }else{
+            cancel();
+        }
+    }
+
+    //submit new value on blur or change
+    input.addEventListener("blur", onChange);
+
+    //submit new value on enter
+    input.addEventListener("keydown", function(e){
+        if(e.keyCode == 13){
+            onChange();
+        }
+
+        if(e.keyCode == 27){
+            cancel();
+        }
+    });
+
+    return input;
+};
 
 //define row context menu contents
 var rowMenu = [
@@ -203,17 +251,17 @@ let table = new Tabulator("#bdd-table", {
         {title:"Longitude", field:"longitude", editor:"input", editor:true,  validator:["min:0", "max:100", "numeric"], hozAlign:"center", headerMenu:headerMenu, visible:false},
         {title:"Distance (km)", field:"distance", headerMenu:headerMenu, sorter:"number", hozAlign:"center", headerFilter:"number", headerFilterPlaceholder:"Max", headerFilterFunc:"<="},
         {title:"Adresse", field:"adresse",editor:"input", headerMenu:headerMenu, headerFilter:"input"},
-        {title:"Statut d'activité", field:"active", editor:"input", validator:["required", "in:unknown|Active|Inactive"], headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
-        {title:"Début", field:"date_start", headerMenu:headerMenu, sorter:"date",  headerFilter:"input"},
-        {title:"Fin", field:"date_end", headerMenu:headerMenu, sorter:"date",  headerFilter:"input"},
-        {title:"Type de lieu", field:"type", editor:"input", validator:["required", "in:ecole|event|boutique|autre"], headerMenu:headerMenu,visible:false, headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Statut d'activité", field:"active", editor:"list", editorParams:{values:{"Active":"Active", "Inactive":"Inactive", "unknown":"Unknown"}}, validator:["required", "in:unknown|Active|Inactive"], headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Début", field:"date_start", headerMenu:headerMenu, sorter:"date",  headerFilter:"input", editor:dateEditor},
+        {title:"Fin", field:"date_end", headerMenu:headerMenu, sorter:"date",  headerFilter:"input", editor:dateEditor},
+        {title:"Type de lieu", field:"type", editor:"list", editorParams:{values:{"ecole":"Ecole", "event":"Evénement","Boutique":"Boutique", "Autre":"Autre"}}, validator:["required", "in:ecole|event|Boutique|Autre"], headerMenu:headerMenu,visible:false, headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
         {title:"Email", field:"mail", editor:"input", headerMenu:headerMenu,visible:false,headerFilter:"input"},
         {title:"Téléphone", field:"phone", editor:"input", headerMenu:headerMenu,visible:false,headerFilter:"input"},
         {title:"Facebook", field:"facebook", editor:"input", headerMenu:headerMenu,visible:false,headerFilter:"input"},
         {title:"Instagram", field:"instagram", editor:"input", headerMenu:headerMenu,visible:false,headerFilter:"input"},
         {title:"Site Web", field:"site_web", editor:"input", headerMenu:headerMenu,visible:false,headerFilter:"input"},
-        {title:"Status du contact", field:"status_contact", editor:"input", validator:["required", "in:tocontact|contacté|non contacté|doit répondre"], headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
-        {title:"Status de la relation", field:"status_relation", editor:"input", validator:["required", "in:unknown|intéressé|pas intéressé"], headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Status du contact", field:"status_contact", editor:"list", editorParams:{values:{"tocontact":"à contacté", "contacté":"contacté", "doit répondre":"doit répondre"}}, validator:["required", "in:tocontact|contacté|non contacté|doit répondre"], headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Status de la relation", field:"status_relation", editor:"list", editorParams:{values:{"intéressé":"intéressé", "pas intéressé":"pas intéressé", "unknown":"Unknown"}}, validator:["required", "in:unknown|intéressé|pas intéressé"], headerMenu:headerMenu, editor:"input", headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
         {title:"Commentaire", field:"commentaire", editor:"input", headerMenu:headerMenu,headerFilter:"input"},
         {title:"Source", field:"source", editor:"input", headerMenu:headerMenu,visible:false,headerFilter:"input"},
         {title:"Date de la création", field:"time_creation", headerMenu:headerMenu,visible:false, sorter:"date",  headerFilter:"input"},

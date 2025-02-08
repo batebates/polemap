@@ -78,15 +78,21 @@
           <input type="radio" id="Inactive" name="statut_actif" value="Inactive">
           <label for="Inactive">Inactive</label>
         </div>
-        <div class="form-group">
-          <p>Statut Relation :</p>
-          <input type="radio" id="relation_interested" name="statut_relation" value="intéressé">
-          <label for="relation_interested">Intéressé</label>
-          <input type="radio" id="relation_notinterested" name="statut_relation" value="pas intéressé">
-          <label for="relation_notinterested">Pas intéressé</label>
-          <input type="radio" id="relation_unknown" name="statut_relation" value="Unknown" checked>
-          <label for="relation_unknown">Unknown</label>
-        </div>
+          <div class="form-group">
+            <p>Statut Relation :</p>
+            <label class="radio-option" for="relation_interested">
+              <input type="radio" id="relation_interested" name="statut_relation" value="intéressé">
+              Intéressé
+            </label>
+            <label class="radio-option" for="relation_notinterested">
+              <input type="radio" id="relation_notinterested" name="statut_relation" value="pas intéressé">
+              Pas intéressé
+            </label>
+            <label class="radio-option" for="relation_unknown">
+              <input type="radio" id="relation_unknown" name="statut_relation" value="Unknown" checked>
+              Unknown
+            </label>
+          </div>
         <div class="form-group">
           <p>Statut Contact :</p>
           <div class="form-row">

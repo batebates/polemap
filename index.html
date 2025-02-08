@@ -34,134 +34,135 @@
      <div id="map"></div>
 
 <div id="block-form-ajout-lieu">
-<form id="form-ajout-lieu">
+     <h2>Ajouter un lieu</h2>
+     <form id="form-ajout-lieu">
 
-  <!-- Nom du lieu -->
-  <div>
-    <label for="nom">Nom du lieu</label>
-    <input type="text" id="nom" name="nom" placeholder="Nom du lieu">
-  </div>
-
-  <!-- Adresse -->
-  <div>
-    <label for="adresse">Adresse</label>
-    <input type="text" id="adresse" name="adresse" placeholder="Adresse">
-  </div>
-
-  <!-- Coordonnées -->
-  <div>
-    <label for="latitude">Latitude</label>
-    <input type="number" step="any" id="latitude" name="latitude" placeholder="Latitude">
-  </div>
-  <div>
-    <label for="longitude">Longitude</label>
-    <input type="number" step="any" id="longitude" name="longitude" placeholder="Longitude">
-  </div>
-
-  <!-- Statut actif -->
-  <div>
-    <label for="active">Statut actif</label>
-    <select id="active" name="active">
-      <option value="Active" selected>Active</option>
-      <option value="Inactive">Inactive</option>
-      <option value="unknown" >Unknown</option>
-    </select>
-  </div>
-
-  <!-- Type du lieu -->
-  <div>
-    <label for="type">Type</label>
-    <select id="type" name="type">
-      <option value="ecole" selected>École</option>
-      <option value="concurrent">Concurrent</option>
-      <option value="event">Événement</option>
-      <option value="autre">Autre</option>
-      <option value="unknown">Unknown</option>
-    </select>
-  </div>
-
-  <!-- Dates (affichées uniquement si type = "event") -->
-  <div id="dates-container" style="display: none;">
-    <div>
-      <label for="date_start">Date de début</label>
-      <input type="date" id="date_start" name="date_start">
-    </div>
-    <div>
-      <label for="date_end">Date de fin</label>
-      <input type="date" id="date_end" name="date_end">
-    </div>
-  </div>
-
-  <!-- Coordonnées de contact -->
-  <div>
-    <label for="mail">Email</label>
-    <input type="email" id="mail" name="mail" placeholder="Email">
-  </div>
-  <div>
-    <label for="phone">Téléphone</label>
-    <input type="tel" id="phone" name="phone" placeholder="Téléphone">
-  </div>
-
-  <!-- Réseaux sociaux / Site web -->
-  <div>
-    <label for="facebook">Facebook</label>
-    <input type="url" id="facebook" name="facebook" placeholder="Lien Facebook">
-  </div>
-  <div>
-    <label for="instagram">Instagram</label>
-    <input type="url" id="instagram" name="instagram" placeholder="Lien Instagram">
-  </div>
-  <div>
-    <label for="site_web">Site Web</label>
-    <input type="url" id="site_web" name="site_web" placeholder="Lien du site web">
-  </div>
-
-  <!-- Description -->
-  <div>
-    <label for="description">Description</label>
-    <textarea id="description" name="description" placeholder="Description"></textarea>
-  </div>
-
-  <!-- Statuts et commentaires -->
-  <div>
-    <label for="status_relation">Statut Relation</label>
-    <input type="text" id="status_relation" name="status_relation" placeholder="Statut Relation" value="unknown">
-  </div>
-   <!-- Type du lieu -->
-  <div>
-    <label for="status_contact">Statut Contact</label>
-    <select id="status_contact" name="status_contact">
-      <option value="tocontact" selected>à contacter</option>
-      <option value="concurrent">contacté</option>
-      <option value="event">doit répondre</option>
-    </select>
-  </div>
-  <!-- Type du lieu -->
-  <div>
-    <label for="type">Type</label>
-    <select id="type" name="type">
-      <option value="intéressé">intéressé</option>
-      <option value="pas intéressé">pas intéressé</option>
-      <option value="unknown" selected>Unknown</option>
-    </select>
-  </div>
-  <div>
-    <label for="commentaire">Commentaire</label>
-    <textarea id="commentaire" name="commentaire" placeholder="Commentaire"></textarea>
-  </div>
-
-  <!-- Source -->
-  <div>
-    <label for="source">Source</label>
-    <input type="text" id="source" name="source" placeholder="Source">
-  </div>
-
-  <!-- Bouton de soumission -->
-  <div>
-    <button type="submit">Ajouter le lieu</button>
-  </div>
-
-</form>
+       <!-- Nom du lieu -->
+       <div>
+         <label for="nom">Nom du lieu</label>
+         <input type="text" id="nom" name="nom" placeholder="Nom du lieu">
+       </div>
+     
+       <!-- Adresse -->
+       <div>
+         <label for="adresse">Adresse</label>
+         <input type="text" id="adresse" name="adresse" placeholder="Adresse">
+       </div>
+     
+       <!-- Coordonnées -->
+       <div>
+         <label for="latitude">Latitude</label>
+         <input type="number" step="any" id="latitude" name="latitude" placeholder="Latitude">
+       </div>
+       <div>
+         <label for="longitude">Longitude</label>
+         <input type="number" step="any" id="longitude" name="longitude" placeholder="Longitude">
+       </div>
+     
+       <!-- Statut actif -->
+       <div>
+         <label for="active">Statut actif</label>
+         <select id="active" name="active">
+           <option value="Active" selected>Active</option>
+           <option value="Inactive">Inactive</option>
+           <option value="unknown" >Unknown</option>
+         </select>
+       </div>
+     
+       <!-- Type du lieu -->
+       <div>
+         <label for="type">Type</label>
+         <select id="type" name="type">
+           <option value="ecole" selected>École</option>
+           <option value="concurrent">Concurrent</option>
+           <option value="event">Événement</option>
+           <option value="autre">Autre</option>
+           <option value="unknown">Unknown</option>
+         </select>
+       </div>
+     
+       <!-- Dates (affichées uniquement si type = "event") -->
+       <div id="dates-container" style="display: none;">
+         <div>
+           <label for="date_start">Date de début</label>
+           <input type="date" id="date_start" name="date_start">
+         </div>
+         <div>
+           <label for="date_end">Date de fin</label>
+           <input type="date" id="date_end" name="date_end">
+         </div>
+       </div>
+     
+       <!-- Coordonnées de contact -->
+       <div>
+         <label for="mail">Email</label>
+         <input type="email" id="mail" name="mail" placeholder="Email">
+       </div>
+       <div>
+         <label for="phone">Téléphone</label>
+         <input type="tel" id="phone" name="phone" placeholder="Téléphone">
+       </div>
+     
+       <!-- Réseaux sociaux / Site web -->
+       <div>
+         <label for="facebook">Facebook</label>
+         <input type="url" id="facebook" name="facebook" placeholder="Lien Facebook">
+       </div>
+       <div>
+         <label for="instagram">Instagram</label>
+         <input type="url" id="instagram" name="instagram" placeholder="Lien Instagram">
+       </div>
+       <div>
+         <label for="site_web">Site Web</label>
+         <input type="url" id="site_web" name="site_web" placeholder="Lien du site web">
+       </div>
+     
+       <!-- Description -->
+       <div>
+         <label for="description">Description</label>
+         <textarea id="description" name="description" placeholder="Description"></textarea>
+       </div>
+     
+       <!-- Statuts et commentaires -->
+       <div>
+         <label for="status_relation">Statut Relation</label>
+         <input type="text" id="status_relation" name="status_relation" placeholder="Statut Relation" value="unknown">
+       </div>
+        <!-- Type du lieu -->
+       <div>
+         <label for="status_contact">Statut Contact</label>
+         <select id="status_contact" name="status_contact">
+           <option value="tocontact" selected>à contacter</option>
+           <option value="concurrent">contacté</option>
+           <option value="event">doit répondre</option>
+         </select>
+       </div>
+       <!-- Type du lieu -->
+       <div>
+         <label for="type">Type</label>
+         <select id="type" name="type">
+           <option value="intéressé">intéressé</option>
+           <option value="pas intéressé">pas intéressé</option>
+           <option value="unknown" selected>Unknown</option>
+         </select>
+       </div>
+       <div>
+         <label for="commentaire">Commentaire</label>
+         <textarea id="commentaire" name="commentaire" placeholder="Commentaire"></textarea>
+       </div>
+     
+       <!-- Source -->
+       <div>
+         <label for="source">Source</label>
+         <input type="text" id="source" name="source" placeholder="Source">
+       </div>
+     
+       <!-- Bouton de soumission -->
+       <div>
+         <button type="submit" class="button">Ajouter le lieu</button>
+       </div>
+     
+     </form>
 
 <script>
   // Récupération des éléments

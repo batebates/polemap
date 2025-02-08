@@ -30,6 +30,152 @@
 <div id="map-container">
      <h2>🗺 Carte des lieux</h2>
      <div id="map"></div>
+     <div id="div-form-ajout-lieu">
+<form id="form-ajout-lieu">
+
+  <!-- Nom du lieu -->
+  <div>
+    <label for="nom">Nom du lieu *</label>
+    <input type="text" id="nom" name="nom" placeholder="Nom du lieu" required>
+  </div>
+
+  <!-- Adresse -->
+  <div>
+    <label for="adresse">Adresse</label>
+    <input type="text" id="adresse" name="adresse" placeholder="Adresse">
+  </div>
+
+  <!-- Coordonnées -->
+  <div>
+    <label for="latitude">Latitude *</label>
+    <input type="number" step="any" id="latitude" name="latitude" placeholder="Latitude" required>
+  </div>
+  <div>
+    <label for="longitude">Longitude *</label>
+    <input type="number" step="any" id="longitude" name="longitude" placeholder="Longitude" required>
+  </div>
+
+  <!-- Statut actif -->
+  <div>
+    <label for="active">Statut actif</label>
+    <select id="active" name="active">
+      <option value="Active">Active</option>
+      <option value="Inactive">Inactive</option>
+      <option value="unknown" selected>Unknown</option>
+    </select>
+  </div>
+
+  <!-- Type du lieu -->
+  <div>
+    <label for="type">Type</label>
+    <select id="type" name="type">
+      <option value="ecole">École</option>
+      <option value="concurrent">Concurrent</option>
+      <option value="event">Événement</option>
+      <option value="autre">Autre</option>
+      <option value="unknown">Unknown</option>
+    </select>
+  </div>
+
+  <!-- Dates (affichées uniquement si type = "event") -->
+  <div id="dates-container" style="display: none;">
+    <div>
+      <label for="date_start">Date de début</label>
+      <input type="date" id="date_start" name="date_start">
+    </div>
+    <div>
+      <label for="date_end">Date de fin</label>
+      <input type="date" id="date_end" name="date_end">
+    </div>
+  </div>
+
+  <!-- Coordonnées de contact -->
+  <div>
+    <label for="mail">Email</label>
+    <input type="email" id="mail" name="mail" placeholder="Email">
+  </div>
+  <div>
+    <label for="phone">Téléphone</label>
+    <input type="tel" id="phone" name="phone" placeholder="Téléphone">
+  </div>
+
+  <!-- Réseaux sociaux / Site web -->
+  <div>
+    <label for="facebook">Facebook</label>
+    <input type="url" id="facebook" name="facebook" placeholder="Lien Facebook">
+  </div>
+  <div>
+    <label for="instagram">Instagram</label>
+    <input type="url" id="instagram" name="instagram" placeholder="Lien Instagram">
+  </div>
+  <div>
+    <label for="site_web">Site Web</label>
+    <input type="url" id="site_web" name="site_web" placeholder="Lien du site web">
+  </div>
+
+  <!-- Description -->
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" placeholder="Description"></textarea>
+  </div>
+
+  <!-- Statuts et commentaires -->
+  <div>
+    <label for="status_contact">Statut Contact</label>
+    <input type="text" id="status_contact" name="status_contact" placeholder="Statut Contact" value="tocontact">
+  </div>
+  <div>
+    <label for="status_relation">Statut Relation</label>
+    <input type="text" id="status_relation" name="status_relation" placeholder="Statut Relation" value="unknown">
+  </div>
+  <div>
+    <label for="commentaire">Commentaire</label>
+    <textarea id="commentaire" name="commentaire" placeholder="Commentaire"></textarea>
+  </div>
+
+  <!-- Source -->
+  <div>
+    <label for="source">Source</label>
+    <input type="text" id="source" name="source" placeholder="Source">
+  </div>
+
+  <!-- Bouton de soumission -->
+  <div>
+    <button type="submit">Ajouter le lieu</button>
+  </div>
+
+</form>
+
+<script>
+  // Récupération des éléments
+  const typeSelect = document.getElementById('type');
+  const datesContainer = document.getElementById('dates-container');
+  const dateStartInput = document.getElementById('date_start');
+  const dateEndInput = document.getElementById('date_end');
+
+  // Fonction d'affichage/masquage des dates
+  function toggleDates() {
+    if (typeSelect.value === 'event') {
+      datesContainer.style.display = 'block';
+      // Rendre les dates obligatoires si c'est un événement
+      dateStartInput.required = true;
+      dateEndInput.required = true;
+    } else {
+      datesContainer.style.display = 'none';
+      // Retirer l'obligation de saisie
+      dateStartInput.required = false;
+      dateEndInput.required = false;
+    }
+  }
+
+  // Déclencher l'affichage dès qu'il y a un changement dans le select
+  typeSelect.addEventListener('change', toggleDates);
+
+  // Vérifier l'état initial au chargement de la page
+  document.addEventListener('DOMContentLoaded', toggleDates);
+</script>
+
+     </div>
      <h3>Place to pole</h3>
      <div id="bdd-table"></div>
 

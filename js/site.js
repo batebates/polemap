@@ -392,7 +392,7 @@ function chargerMap() {
 }
 
 
-
+document.getElementById("form-ajout-lieu").addEventListener("submit", ajouterLieu);
 
 // 📌 Ajouter un lieu
 function ajouterLieu(event) {

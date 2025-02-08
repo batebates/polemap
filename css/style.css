@@ -1,4 +1,4 @@
-body { font-family: Antonio; text-align: center; padding: 50px; }
+body { font-family: Antonio; text-align: initial; padding: 50px; }
 #auth-container { display: block; }
 #map-container { display: none; }
 #map { height: 600px; width: 100%; }

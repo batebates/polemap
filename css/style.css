@@ -96,3 +96,46 @@ textarea{
     -webkit-font-smoothing: antialiased;
 }
 
+/* Conteneur général du formulaire */
+#block-form-ajout-lieu {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Style des fieldset pour séparer les groupes */
+form fieldset {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+form legend {
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+/* Disposition en ligne des groupes de champs */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Chaque groupe de champ */
+.form-group {
+  flex: 1 1 200px; /* Permet de s'adapter à la taille de l'écran */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Espacement sous les labels */
+.form-group label {
+  margin-bottom: 0.5rem;
+}
+
+
+

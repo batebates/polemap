@@ -89,27 +89,15 @@
         </div>
         <div class="form-group">
           <p>Statut Contact :</p>
-          <input type="radio" id="contact_tocontact" name="statut_contact" value="à contacter" checked>
           <label for="contact_tocontact">à contacter</label>
-          <input type="radio" id="contact_contacted" name="statut_contact" value="contacté">
+          <input type="radio" id="contact_tocontact" name="statut_contact" value="à contacter" checked>
           <label for="contact_contacted">contacté</label>
-          <input type="radio" id="contact_needresponse" name="statut_contact" value="doit répondre">
+          <input type="radio" id="contact_contacted" name="statut_contact" value="contacté">
           <label for="contact_needresponse">doit répondre</label>
+          <input type="radio" id="contact_needresponse" name="statut_contact" value="doit répondre">         
         </div>
       </div>
-    </fieldset>
-       <!-- Type du lieu -->
-       <div>
-         <label for="type">Type</label>
-         <select id="type" name="type">
-           <option value="ecole" selected>École</option>
-           <option value="concurrent">Concurrent</option>
-           <option value="event">Événement</option>
-           <option value="autre">Autre</option>
-           <option value="unknown">Unknown</option>
-         </select>
-       </div>
-     
+    </fieldset>     
     <!-- Type et Dates -->
     <fieldset>
       <legend>Type & Dates</legend>
@@ -143,7 +131,7 @@
 
     <!-- Coordonnées de contact -->
     <fieldset>
-      <legend>Coordonnées de contact</legend>
+      <legend>Coordonnées</legend>
       <div class="form-row">
         <div class="form-group">
           <label for="mail">Email</label>
@@ -154,12 +142,7 @@
           <input type="tel" id="phone" name="phone" placeholder="Téléphone">
         </div>
       </div>
-    </fieldset>
-
-    <!-- Réseaux sociaux / Site web -->
-    <fieldset>
-      <legend>Réseaux sociaux / Site web</legend>
-      <div class="form-row">
+     <div class="form-row">
         <div class="form-group">
           <label for="facebook">Facebook</label>
           <input type="url" id="facebook" name="facebook" placeholder="Lien Facebook">
@@ -177,23 +160,12 @@
 
     <!-- Description et Commentaire -->
     <fieldset>
-      <legend>Description & Commentaire</legend>
+      <legend>Compléments</legend>
       <div class="form-row">
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea id="description" name="description" placeholder="Description"></textarea>
-        </div>
         <div class="form-group">
           <label for="commentaire">Commentaire</label>
           <textarea id="commentaire" name="commentaire" placeholder="Commentaire"></textarea>
         </div>
-      </div>
-    </fieldset>
-
-    <!-- Source -->
-    <fieldset>
-      <legend>Source</legend>
-      <div class="form-row">
         <div class="form-group">
           <label for="source">Source</label>
           <input type="text" id="source" name="source" placeholder="Source">

@@ -52,42 +52,52 @@
       </div>
      </fieldset>
      
-       <!-- Coordonnées -->
-       <div>
-         <label for="latitude">Latitude</label>
-         <input type="number" step="any" id="latitude" name="latitude" placeholder="Latitude">
-       </div>
-       <div>
-         <label for="longitude">Longitude</label>
-         <input type="number" step="any" id="longitude" name="longitude" placeholder="Longitude">
-       </div>
+     <!-- Coordonnées géographiques -->
+     <fieldset>
+      <legend>Coordonnées</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="latitude">Latitude</label>
+          <input type="number" step="any" id="latitude" name="latitude" placeholder="Latitude">
+        </div>
+        <div class="form-group">
+          <label for="longitude">Longitude</label>
+          <input type="number" step="any" id="longitude" name="longitude" placeholder="Longitude">
+        </div>
+      </div>
+     </fieldset>
      
-       <!-- Statut actif -->
-       <div>
-         <p>Statut actif:</p>
-          <input type="radio" id="Active" name="statut_actif" value="Active" checked="checked">
-          <label for="Active">Active</label><br>
+    <!-- Statuts -->
+    <fieldset>
+      <legend>Statuts</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <p>Statut actif :</p>
+          <input type="radio" id="Active" name="statut_actif" value="Active" checked>
+          <label for="Active">Active</label>
           <input type="radio" id="Inactive" name="statut_actif" value="Inactive">
-          <label for="Inactive">Inactive</label><br>
-       </div>
-     <div>
-          <p>Statut Relation:</p>
+          <label for="Inactive">Inactive</label>
+        </div>
+        <div class="form-group">
+          <p>Statut Relation :</p>
           <input type="radio" id="relation_interested" name="statut_relation" value="intéressé">
-          <label for="relation_interested">Intéressé</label><br>
+          <label for="relation_interested">Intéressé</label>
           <input type="radio" id="relation_notinterested" name="statut_relation" value="pas intéressé">
-          <label for="relation_notinterested">Pas intéressé</label><br>
-          <input type="radio" id="relation_unknown" name="statut_relation" value="Unknown" checked="checked">
-          <label for="relation_unknown">Unknown</label><br>
-       </div>
-       <div>
-          <p>Statut Contact:</p>
-          <input type="radio" id="contact_tocontact" name="statut_contact" value="à contacter" checked="checked">
-          <label for="contact_tocontact">à contacter</label><br>
+          <label for="relation_notinterested">Pas intéressé</label>
+          <input type="radio" id="relation_unknown" name="statut_relation" value="Unknown" checked>
+          <label for="relation_unknown">Unknown</label>
+        </div>
+        <div class="form-group">
+          <p>Statut Contact :</p>
+          <input type="radio" id="contact_tocontact" name="statut_contact" value="à contacter" checked>
+          <label for="contact_tocontact">à contacter</label>
           <input type="radio" id="contact_contacted" name="statut_contact" value="contacté">
-          <label for="contact_contacted">contacté</label><br>
+          <label for="contact_contacted">contacté</label>
           <input type="radio" id="contact_needresponse" name="statut_contact" value="doit répondre">
-          <label for="contact_needresponse">doit répondre</label><br>
-       </div>
+          <label for="contact_needresponse">doit répondre</label>
+        </div>
+      </div>
+    </fieldset>
        <!-- Type du lieu -->
        <div>
          <label for="type">Type</label>
@@ -100,64 +110,101 @@
          </select>
        </div>
      
-       <!-- Dates (affichées uniquement si type = "event") -->
-       <div id="dates-container" style="display: none;">
-         <div>
-           <label for="date_start">Date de début</label>
-           <input type="date" id="date_start" name="date_start">
-         </div>
-         <div>
-           <label for="date_end">Date de fin</label>
-           <input type="date" id="date_end" name="date_end">
-         </div>
-       </div>
-     
-       <!-- Coordonnées de contact -->
-       <div>
-         <label for="mail">Email</label>
-         <input type="email" id="mail" name="mail" placeholder="Email">
-       </div>
-       <div>
-         <label for="phone">Téléphone</label>
-         <input type="tel" id="phone" name="phone" placeholder="Téléphone">
-       </div>
-     
-       <!-- Réseaux sociaux / Site web -->
-       <div>
-         <label for="facebook">Facebook</label>
-         <input type="url" id="facebook" name="facebook" placeholder="Lien Facebook">
-       </div>
-       <div>
-         <label for="instagram">Instagram</label>
-         <input type="url" id="instagram" name="instagram" placeholder="Lien Instagram">
-       </div>
-       <div>
-         <label for="site_web">Site Web</label>
-         <input type="url" id="site_web" name="site_web" placeholder="Lien du site web">
-       </div>
-     
-       <!-- Description -->
-       <div>
-         <label for="description">Description</label>
-         <textarea id="description" name="description" placeholder="Description"></textarea>
-       </div>
+    <!-- Type et Dates -->
+    <fieldset>
+      <legend>Type & Dates</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="type">Type</label>
+          <select id="type" name="type">
+            <option value="ecole" selected>École</option>
+            <option value="concurrent">Concurrent</option>
+            <option value="event">Événement</option>
+            <option value="autre">Autre</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+      </div>
 
+      <!-- Dates (affichées uniquement si type = "event") -->
+      <div id="dates-container" style="display: none;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date_start">Date de début</label>
+            <input type="date" id="date_start" name="date_start">
+          </div>
+          <div class="form-group">
+            <label for="date_end">Date de fin</label>
+            <input type="date" id="date_end" name="date_end">
+          </div>
+        </div>
+      </div>
+    </fieldset>
 
-       <div>
-         <label for="commentaire">Commentaire</label>
-         <textarea id="commentaire" name="commentaire" placeholder="Commentaire"></textarea>
-       </div>
-     
-       <!-- Source -->
-       <div>
-         <label for="source">Source</label>
-         <input type="text" id="source" name="source" placeholder="Source">
-       </div>
-     
-       <!-- Bouton de soumission -->
-       <div>
-         <button type="submit" class="button">Ajouter le lieu</button>
-       </div>
+    <!-- Coordonnées de contact -->
+    <fieldset>
+      <legend>Coordonnées de contact</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mail">Email</label>
+          <input type="email" id="mail" name="mail" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Téléphone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Téléphone">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Réseaux sociaux / Site web -->
+    <fieldset>
+      <legend>Réseaux sociaux / Site web</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="facebook">Facebook</label>
+          <input type="url" id="facebook" name="facebook" placeholder="Lien Facebook">
+        </div>
+        <div class="form-group">
+          <label for="instagram">Instagram</label>
+          <input type="url" id="instagram" name="instagram" placeholder="Lien Instagram">
+        </div>
+        <div class="form-group">
+          <label for="site_web">Site Web</label>
+          <input type="url" id="site_web" name="site_web" placeholder="Lien du site web">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Description et Commentaire -->
+    <fieldset>
+      <legend>Description & Commentaire</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="commentaire">Commentaire</label>
+          <textarea id="commentaire" name="commentaire" placeholder="Commentaire"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Source -->
+    <fieldset>
+      <legend>Source</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="source">Source</label>
+          <input type="text" id="source" name="source" placeholder="Source">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Bouton de soumission -->
+    <div class="form-row">
+      <button type="submit" class="button">Ajouter le lieu</button>
+    </div>
      
      </form>
 

@@ -395,17 +395,46 @@ function chargerMap() {
 
 
 // 📌 Ajouter un lieu
-function ajouterLieu() {
-    let nom = document.getElementById("nom").value;
-    let adresse = document.getElementById("adresse").value;
-    let latitude = parseFloat(document.getElementById("latitude").value);
-    let longitude = parseFloat(document.getElementById("longitude").value);
+function ajouterLieu(event) {
+  // Empêcher l'envoi classique du formulaire
+  event.preventDefault();
 
-    fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nom, latitude, longitude, adresse })
-    }).then(() => chargerLieux());
+  // Récupérer le formulaire et créer un objet FormData
+  const form = document.getElementById("form-ajout-lieu");
+  const formData = new FormData(form);
+
+  // Convertir les données du formulaire en objet
+  const data = Object.fromEntries(formData.entries());
+
+  // Convertir latitude et longitude en nombres (si les champs sont renseignés)
+  data.latitude = parseFloat(data.latitude);
+  data.longitude = parseFloat(data.longitude);
+
+  // Optionnel : si le type n'est pas "event", on peut forcer les dates à null
+  if (data.type !== "event") {
+    data.date_start = null;
+    data.date_end = null;
+  }
+
+  // Envoi de la requête POST vers l'API
+  fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'ajout du lieu");
+      }
+      return response.json();
+    })
+    .then(() => {
+      // Par exemple, recharger la liste des lieux après ajout
+      chargerLieux();
+    })
+    .catch(error => {
+      console.error("Erreur:", error);
+    });
 }
 
 // 📌 Supprimer un lieu

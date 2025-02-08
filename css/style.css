@@ -57,3 +57,26 @@ input{
     vertical-align: baseline;
     touch-action: manipulation;
 }
+.button {
+    width: auto;
+    background-color: #74547e;
+    color: #fff;
+        display: inline-block;
+    padding: .8180469716em 1.41575em;
+    border: 0;
+    border-color: #43454b;
+    border-radius: 4px;
+    font-size: clamp(.875rem, .8115rem + .2033vw, .9375rem);
+    outline: 0;
+    background: 0 0;
+    font-weight: 600;
+    text-shadow: none;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: .2s all;
+    font-family: Antonio;
+    touch-action: manipulation;
+    -webkit-font-smoothing: antialiased;
+}
+

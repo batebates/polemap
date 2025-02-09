@@ -39,7 +39,7 @@
 
      <!-- Informations sur le lieu -->
      <fieldset>
-      <legend>Informations sur le lieu</legend>
+      <legend>Informations principals</legend>
       <div class="form-row">
         <div class="form-group">
           <label for="nom">Nom du lieu</label>
@@ -50,12 +50,7 @@
           <input type="text" id="adresse" name="adresse" placeholder="Adresse">
         </div>
       </div>
-     </fieldset>
-     
-     <!-- Coordonnées géographiques -->
-     <fieldset>
-      <legend>Coordonnées</legend>
-      <div class="form-row">
+     <div class="form-row">
         <div class="form-group">
           <label for="latitude">Latitude</label>
           <input type="number" step="any" id="latitude" name="latitude" placeholder="Latitude">
@@ -63,6 +58,30 @@
         <div class="form-group">
           <label for="longitude">Longitude</label>
           <input type="number" step="any" id="longitude" name="longitude" placeholder="Longitude">
+        </div>
+      </div>
+           <div class="form-row">
+        <div class="form-group">
+          <label for="mail">Email</label>
+          <input type="email" id="mail" name="mail" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Téléphone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Téléphone">
+        </div>
+      </div>
+     <div class="form-row">
+        <div class="form-group">
+          <label for="facebook">Facebook</label>
+          <input type="url" id="facebook" name="facebook" placeholder="Lien Facebook">
+        </div>
+        <div class="form-group">
+          <label for="instagram">Instagram</label>
+          <input type="url" id="instagram" name="instagram" placeholder="Lien Instagram">
+        </div>
+        <div class="form-group">
+          <label for="site_web">Site Web</label>
+          <input type="url" id="site_web" name="site_web" placeholder="Lien du site web">
         </div>
       </div>
      </fieldset>
@@ -84,11 +103,11 @@
           </label>
         </div>
           <div class="form-group">
+            <p>Statut Relation :</p>
             <label class="radio-option" for="relation_unknown">
               <input type="radio" id="relation_unknown" name="statut_relation" value="Unknown" checked>
               Unknown
             </label>
-            <p>Statut Relation :</p>
             <label class="radio-option" for="relation_interested">
               <input type="radio" id="relation_interested" name="statut_relation" value="intéressé">
               Intéressé
@@ -146,34 +165,6 @@
       </div>
     </fieldset>
 
-    <!-- Coordonnées de contact -->
-    <fieldset>
-      <legend>Coordonnées</legend>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="mail">Email</label>
-          <input type="email" id="mail" name="mail" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label for="phone">Téléphone</label>
-          <input type="tel" id="phone" name="phone" placeholder="Téléphone">
-        </div>
-      </div>
-     <div class="form-row">
-        <div class="form-group">
-          <label for="facebook">Facebook</label>
-          <input type="url" id="facebook" name="facebook" placeholder="Lien Facebook">
-        </div>
-        <div class="form-group">
-          <label for="instagram">Instagram</label>
-          <input type="url" id="instagram" name="instagram" placeholder="Lien Instagram">
-        </div>
-        <div class="form-group">
-          <label for="site_web">Site Web</label>
-          <input type="url" id="site_web" name="site_web" placeholder="Lien du site web">
-        </div>
-      </div>
-    </fieldset>
 
     <!-- Description et Commentaire -->
     <fieldset>

@@ -42,8 +42,21 @@ label {
     font-size: 14px;
     font-weight: 600;
 }
-.button:hover{
-    background-color: #9c6571;
+
+select{
+    outline: 0;
+    margin-bottom: 0;
+    border: 1px solid #d2d6dc;
+    border-radius: .3rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+    height: 30px;
+    padding: 0 .7em;
+    font-family: Tahoma;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #000000;
+    vertical-align: baseline;
+    touch-action: manipulation;
 }
 input[type=text]{
     outline: 0;
@@ -113,7 +126,9 @@ textarea{
     touch-action: manipulation;
     -webkit-font-smoothing: antialiased;
 }
-
+.button:hover{
+    background-color: #9c6571 !important;
+}
 /* Conteneur général du formulaire */
 #block-form-ajout-lieu {
   max-width: 900px;

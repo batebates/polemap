@@ -42,7 +42,7 @@ label {
     font-size: 14px;
     font-weight: 600;
 }
-#mail, #phone, #facebook, #instagram, #site_web{
+#mail, #phone, #facebook, #instagram, #site_web, #type{
     outline: 0;
     margin-bottom: 0;
     border: 1px solid #d2d6dc;

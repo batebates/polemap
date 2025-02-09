@@ -42,7 +42,7 @@ label {
     font-size: 14px;
     font-weight: 600;
 }
-input[type=text]{
+input[type=text] input[type=number]{
     outline: 0;
     margin-bottom: 0;
     border: 1px solid #d2d6dc;
@@ -136,6 +136,19 @@ form legend {
 .form-group label {
   margin-bottom: 0.5rem;
 }
+.radio-option {
+  display: inline-flex;      /* Affichage en ligne avec flexbox */
+  align-items: center;         /* Aligne verticalement le contenu */
+  margin-right: 1rem;          /* Espacement entre chaque option */
+  cursor: pointer;             /* Pour indiquer que c'est cliquable */
+}
 
+/* Optionnel : espacer le bouton du texte */
+.radio-option input[type="radio"] {
+  margin-right: 0.3em;
+}
+.button:hover{
+    background-color: #9c6571;
+}
 
 

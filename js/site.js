@@ -429,8 +429,10 @@ function ajouterLieu(event) {
       return response.json();
     })
     .then(() => {
-      // Par exemple, recharger la liste des lieux après ajout
+      form.reset();
+        
       chargerLieux();
+      document.getElementById("block-form-ajout-lieu").scrollIntoView({ behavior: 'smooth' });
     })
     .catch(error => {
       console.error("Erreur:", error);

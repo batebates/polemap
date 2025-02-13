@@ -1,4 +1,184 @@
-body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+body { font-family: Antonio; text-align: initial; padding: 50px; }
 #auth-container { display: block; }
 #map-container { display: none; }
 #map { height: 600px; width: 100%; }
+.elementor-heading-title {
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+.elementor-heading-title {
+    color: #000000;
+    font-family: "Aladin", Sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    letter-spacing: 0px;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+h1, h2, h3, h4 {
+    text-wrap: pretty;
+}
+h1, h2 {
+    margin: 0 0 1rem;
+}
+.elementor *, .elementor :after, .elementor :before {
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #111;
+    font-size: 14px;
+    font-weight: 600;
+}
+#mail, #phone, #facebook, #instagram, #site_web, #type{
+    outline: 0;
+    margin-bottom: 0;
+    border: 1px solid #d2d6dc;
+    border-radius: .3rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+    height: 30px;
+    padding: 0 .7em;
+    font-family: Tahoma;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #000000;
+    vertical-align: baseline;
+    touch-action: manipulation;
+}
+input[type=text]{
+    outline: 0;
+    margin-bottom: 0;
+    border: 1px solid #d2d6dc;
+    border-radius: .3rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+    height: 30px;
+    padding: 0 .7em;
+    font-family: Tahoma;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #000000;
+    vertical-align: baseline;
+    touch-action: manipulation;
+}
+input[type=number]{
+    outline: 0;
+    margin-bottom: 0;
+    border: 1px solid #d2d6dc;
+    border-radius: .3rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+    height: 30px;
+    padding: 0 .7em;
+    font-family: Tahoma;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #000000;
+    vertical-align: baseline;
+    touch-action: manipulation;
+}
+textarea{
+    outline: 0;
+    margin-bottom: 0;
+    border: 1px solid #d2d6dc;
+    border-radius: .3rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+    height: 50px;
+    padding: 0 .7em;
+    font-family: Tahoma;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #000000;
+    vertical-align: baseline;
+    touch-action: manipulation;
+}
+
+.button {
+    width: auto;
+    background-color: #74547e !important;
+    color: #fff;
+        display: inline-block;
+    padding: .8180469716em 1.41575em;
+    border: 0;
+    border-color: #43454b;
+    border-radius: 4px;
+    font-size: clamp(.875rem, .8115rem + .2033vw, .9375rem);
+    outline: 0;
+    background: 0 0;
+    font-weight: 600;
+    text-shadow: none;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: .2s all;
+    font-family: Antonio;
+    touch-action: manipulation;
+    -webkit-font-smoothing: antialiased;
+}
+.button:hover{
+    background-color: #9c6571 !important;
+}
+/* Conteneur général du formulaire */
+#block-form-ajout-lieu {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Style des fieldset pour séparer les groupes */
+form fieldset {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+form legend {
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+/* Disposition en ligne des groupes de champs */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Chaque groupe de champ */
+.form-group {
+  flex: 1 1 200px; /* Permet de s'adapter à la taille de l'écran */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Espacement sous les labels */
+.form-group label {
+  margin-bottom: 0.5rem;
+}
+.radio-option {
+  display: inline-flex;      /* Affichage en ligne avec flexbox */
+  align-items: center;         /* Aligne verticalement le contenu */
+  margin-right: 1rem;          /* Espacement entre chaque option */
+  cursor: pointer;             /* Pour indiquer que c'est cliquable */
+}
+
+/* Optionnel : espacer le bouton du texte */
+.radio-option input[type="radio"] {
+  margin-right: 0.3em;
+}
+
+
+

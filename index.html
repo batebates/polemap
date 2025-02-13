@@ -9,14 +9,17 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
+<link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Antonio' rel='stylesheet'>
    <!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-
-<link rel='stylesheet' type='text/css' href='css/style.css' /> 
+<link href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css" rel="stylesheet">
+ <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+<link rel='stylesheet' type='text/css' href='css/style.css' />
 </head>
 <body>
 <div id="auth-container">
@@ -27,10 +30,198 @@
      <p id="error-message" style="color: red;"></p>
 </div>
 <div id="map-container">
-     <h2>🗺 Carte des lieux</h2>
+     <h2 class="elementor-heading-title elementor-size-default">🗺 Carte des lieux</h2>
      <div id="map"></div>
-</div>
 
-<script src='js/site.js'></script>
+<div id="block-form-ajout-lieu">
+     <h2>Ajouter un lieu</h2>
+     <form id="form-ajout-lieu">
+
+     <!-- Informations sur le lieu -->
+     <fieldset>
+      <legend>Informations principals</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nom">Nom du lieu</label>
+          <input type="text" id="nom" name="nom" placeholder="Nom du lieu">
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse</label>
+          <input type="text" id="adresse" name="adresse" placeholder="Adresse">
+        </div>
+      </div>
+     <div class="form-row">
+        <div class="form-group">
+          <label for="latitude">Latitude</label>
+          <input type="number" step="any" id="latitude" name="latitude" placeholder="Latitude">
+        </div>
+        <div class="form-group">
+          <label for="longitude">Longitude</label>
+          <input type="number" step="any" id="longitude" name="longitude" placeholder="Longitude">
+        </div>
+      </div>
+           <div class="form-row">
+        <div class="form-group">
+          <label for="mail">Email</label>
+          <input type="email" id="mail" name="mail" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Téléphone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Téléphone">
+        </div>
+      </div>
+     <div class="form-row">
+        <div class="form-group">
+          <label for="facebook">Facebook</label>
+          <input type="url" id="facebook" name="facebook" placeholder="Lien Facebook">
+        </div>
+        <div class="form-group">
+          <label for="instagram">Instagram</label>
+          <input type="url" id="instagram" name="instagram" placeholder="Lien Instagram">
+        </div>
+        <div class="form-group">
+          <label for="site_web">Site Web</label>
+          <input type="url" id="site_web" name="site_web" placeholder="Lien du site web">
+        </div>
+      </div>
+     </fieldset>
+     
+    <!-- Statuts -->
+    <fieldset>
+      <legend>Statuts</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <p>Statut actif :</p>
+          
+          <label class="radio-option" for="Active">
+               <input type="radio" id="Active" name="active" value="Active" checked>
+               Active
+          </label>
+          <label class="radio-option" for="Inactive">
+               <input type="radio" id="Inactive" name="active" value="Inactive">
+               Inactive
+          </label>
+        </div>
+          <div class="form-group">
+            <p>Statut Relation :</p>
+            <label class="radio-option" for="relation_unknown">
+              <input type="radio" id="relation_unknown" name="status_relation" value="Unknown" checked>
+              Unknown
+            </label>
+            <label class="radio-option" for="relation_interested">
+              <input type="radio" id="relation_interested" name="status_relation" value="intéressé">
+              Intéressé
+            </label>
+            <label class="radio-option" for="relation_notinterested">
+              <input type="radio" id="relation_notinterested" name="status_relation" value="pas intéressé">
+              Pas intéressé
+            </label>
+          </div>
+        <div class="form-group">
+            <p>Statut Contact :</p>
+            <label class="radio-option" for="contact_tocontact">
+              <input type="radio" id="contact_tocontact" name="status_contact" value="à contacter" checked>
+              à contacter
+            </label>
+            <label class="radio-option" for="contact_contacted">
+              <input type="radio" id="contact_contacted" name="status_contact" value="contacté">
+              contacté
+            </label>
+            <label class="radio-option" for="contact_needresponse">
+              <input type="radio" id="contact_needresponse" name="status_contact" value="doit répondre">
+              doit répondre
+            </label>
+        </div>
+      </div>
+    </fieldset>     
+    <!-- Type et Dates -->
+    <fieldset>
+      <legend>Type & Dates</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="type">Type</label>
+          <select id="type" name="type">
+            <option value="ecole" selected>École</option>
+            <option value="concurrent">Concurrent</option>
+            <option value="event">Événement</option>
+            <option value="autre">Autre</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dates (affichées uniquement si type = "event") -->
+      <div id="dates-container" style="display: none;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date_start">Date de début</label>
+            <input type="date" id="date_start" name="date_start">
+          </div>
+          <div class="form-group">
+            <label for="date_end">Date de fin</label>
+            <input type="date" id="date_end" name="date_end">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+
+    <!-- Description et Commentaire -->
+    <fieldset>
+      <legend>Compléments</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="commentaire">Commentaire</label>
+          <textarea id="commentaire" name="commentaire" placeholder="Commentaire"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="source">Source</label>
+          <input type="text" id="source" name="source" placeholder="Source">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Bouton de soumission -->
+    <div class="form-row">
+      <button type="submit" class="button">Ajouter le lieu</button>
+    </div>
+     
+     </form>
+
+<script>
+  // Récupération des éléments
+  const typeSelect = document.getElementById('type');
+  const datesContainer = document.getElementById('dates-container');
+  const dateStartInput = document.getElementById('date_start');
+  const dateEndInput = document.getElementById('date_end');
+
+  // Fonction d'affichage/masquage des dates
+  function toggleDates() {
+    if (typeSelect.value === 'event') {
+      datesContainer.style.display = 'block';
+      // Rendre les dates obligatoires si c'est un événement
+      dateStartInput.required = true;
+      dateEndInput.required = true;
+    } else {
+      datesContainer.style.display = 'none';
+      // Retirer l'obligation de saisie
+      dateStartInput.required = false;
+      dateEndInput.required = false;
+    }
+  }
+
+  // Déclencher l'affichage dès qu'il y a un changement dans le select
+  typeSelect.addEventListener('change', toggleDates);
+
+  // Vérifier l'état initial au chargement de la page
+  document.addEventListener('DOMContentLoaded', toggleDates);
+</script>
+</div>
+     <h3>Place to pole</h3>
+     <div id="bdd-table"></div>
+
+    <script src='js/site.js'></script>
+
+</div>
 </body>
 </html>

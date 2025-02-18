@@ -1,6 +1,6 @@
 // 🔐 Stocker le hash du mot de passe (mot de passe : "monSuperMotDePasse123")
 const HASH_STOCKE = "6cc4f9e81df815c52e73b1562df40607"; // MD5("Amusez-vous")
-const API_URL = "http://148.113.45.125:3000/lieux";
+const API_URL = "https://148.113.45.125:3000/lieux";
 // Coordonnées d'Exotea à Toulouse
 const EXOTEA_LAT = 43.606056535595776;
 const EXOTEA_LON = 1.428372974796818;

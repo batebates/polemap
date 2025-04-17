@@ -392,7 +392,7 @@ function chargerMap() {
         }
                 if (lieu.latitude && lieu.longitude) {
                     let marker = L.marker([lieu.latitude, lieu.longitude], {icon: Icon}).addTo(map)
-                        .bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse} <br><br>${lieu.instagram} <br><br>${lieu.email} <br><br>${lieu.site} <br>
+                        .bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse}<br><a href=${lieu.instagram}>${lieu.instagram}</a><br>${lieu.email}<br>${lieu.site}<br>
                         <button onclick="supprimerLieu(${lieu.id})">🗑 Supprimer</button>`);
                 }
         });

@@ -383,6 +383,13 @@ function chargerMap() {
           default:
             Icon = BlueIcon;
         }
+        switch (lieu.status_relation) {
+          case 'partenaire':
+            Icon = BlueIcon;
+            break;
+          default:
+            break;
+        }
         switch (lieu.status_contact) {
           case 'tonotcontact':
             Icon = RedIcon;

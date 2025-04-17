@@ -258,8 +258,8 @@ let table = new Tabulator("#bdd-table", {
         {title:"Facebook", field:"facebook", editor:"input", headerMenu:headerMenu,visible:false,headerFilter:"input"},
         {title:"Instagram", field:"instagram", editor:"input", headerMenu:headerMenu,visible:false,headerFilter:"input"},
         {title:"Site Web", field:"site_web", editor:"input", headerMenu:headerMenu,visible:false,headerFilter:"input"},
-        {title:"Status du contact", field:"status_contact", editor:"list", editorParams:{values:{"tocontact":"à contacté", "contacté":"contacté", "doit répondre":"doit répondre"}}, validator:["required", "in:tocontact|contacté|non contacté|doit répondre"], headerMenu:headerMenu, headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
-        {title:"Status de la relation", field:"status_relation", editor:"list", editorParams:{values:{"intéressé":"intéressé", "pas intéressé":"pas intéressé", "unknown":"Unknown"}}, validator:["required", "in:unknown|intéressé|pas intéressé"], headerMenu:headerMenu, headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Status du contact", field:"status_contact", editor:"list", editorParams:{values:{"tocontact":"à contacter", "contacté":"contacté", "doit répondre":"doit répondre","tonotcontact":"ne pas contacter"}}, validator:["required", "in:tocontact|contacté|non contacté|doit répondre|tonotcontact"], headerMenu:headerMenu, headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
+        {title:"Status de la relation", field:"status_relation", editor:"list", editorParams:{values:{"intéressé":"intéressé", "pas intéressé":"pas intéressé", "partenaire":"Partenaire", "unknown":"Unknown"}}, validator:["required", "in:unknown|intéressé|pas intéressé|partenaire"], headerMenu:headerMenu, headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
         {title:"Début", field:"date_start", headerMenu:headerMenu, sorter:"date",  headerFilter:"input", editor:dateEditor},
         {title:"Fin", field:"date_end", headerMenu:headerMenu, sorter:"date",  headerFilter:"input", editor:dateEditor},
         {title:"Commentaire", field:"commentaire", editor:"input", headerMenu:headerMenu,headerFilter:"input"},
@@ -383,9 +383,16 @@ function chargerMap() {
           default:
             Icon = BlueIcon;
         }
+        switch (lieu.status_contact) {
+          case 'tonotcontact':
+            Icon = RedIcon;
+            break;
+          default:
+            break;
+        }
                 if (lieu.latitude && lieu.longitude) {
                     let marker = L.marker([lieu.latitude, lieu.longitude], {icon: Icon}).addTo(map)
-                        .bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse} <br>
+                        .bindPopup(`<b>${lieu.nom}</b><br>${lieu.adresse} <br><br>${lieu.instagram} <br><br>${lieu.email} <br><br>${lieu.site} <br>
                         <button onclick="supprimerLieu(${lieu.id})">🗑 Supprimer</button>`);
                 }
         });

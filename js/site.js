@@ -247,8 +247,8 @@ let table = new Tabulator("#bdd-table", {
     columns:[
         {title:"Id", field:"id",sorter:"number", headerMenu:headerMenu, visible:false},
         {title:"Nom", field:"nom", hozAlign:"left",editor:"input", headerMenu:headerMenu, headerFilter:"input"},
-        {title:"Latitude", field:"latitude", editor:"input", editor:true,  validator:["min:0", "max:100", "numeric"], headerMenu:headerMenu, visible:false},
-        {title:"Longitude", field:"longitude", editor:"input", editor:true,  validator:["min:0", "max:100", "numeric"], hozAlign:"center", headerMenu:headerMenu, visible:false},
+        {title:"Latitude", field:"latitude", editor:"input", editor:true,  validator:["min:-100", "max:100", "numeric"], headerMenu:headerMenu, visible:false},
+        {title:"Longitude", field:"longitude", editor:"input", editor:true,  validator:["min:-100", "max:100", "numeric"], hozAlign:"center", headerMenu:headerMenu, visible:false},
         {title:"Distance (km)", field:"distance", headerMenu:headerMenu, sorter:"number", hozAlign:"center", headerFilter:"number", headerFilterPlaceholder:"Max", headerFilterFunc:"<="},
         {title:"Adresse", field:"adresse",editor:"input", headerMenu:headerMenu, headerFilter:"input"},
         {title:"Statut d'activité", field:"active", editor:"list", editorParams:{values:{"Active":"Active", "Inactive":"Inactive", "unknown":"Unknown"}}, validator:["required", "in:unknown|Active|Inactive"], headerMenu:headerMenu, headerFilter:"list", headerFilterParams:{valuesLookup:true, clearable:true}},
